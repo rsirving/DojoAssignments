@@ -1,0 +1,41 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    padding: 10px;
+}
+div {
+    display: inline-block;
+    vertical-align: top;
+}
+#information {
+    display: inline-block;
+    width: fit-content;
+    border: 1px solid black;
+    padding: 5px;
+}
+.card {
+    width: 200px;
+    height: 140px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid black;
+}
+h1 {
+    text-align: center;
+    font-size: 25pt;
+}
+.cover {
+    text-align: center;
+}
+#allContacts {
+    width: 500px;
+    display: inline-block;
+}
+#description {
+    display: inline-block;
+    width: 250px;
+    height: 125px;
+    margin-top: 5px;
+}

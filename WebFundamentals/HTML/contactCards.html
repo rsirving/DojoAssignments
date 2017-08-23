@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="contactCards.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).on("click", ".cover, .desc", function(){
+            $(this).parent().children().toggle(); // "If it's stupid but it works, it isn't stupid."
+        });
+        $(document).ready(function(){
+            $('#submitButton').click(function(){
+                var fname = $('#fname').val(), 
+                    lname = $('#lname').val(),
+                    desc = $('#description').val(),
+                    descCover = "Click for description!";
+                    markUp = "<div class=card id="+fname+lname+"><h1>"+fname+" "+lname+"</h1><p class=cover>"+descCover+"</p><p class=desc>"+desc+"</p></div>";   
+                $('#allContacts').append(markUp);
+                $('.desc:last').hide(); // This makes sure that only the most recent card's description is hidden.
+                $('#information').children('[type="text"]').val(""); // This clears the value currently typed into the text inputs.
+            });
+            $('form').submit(function(){
+                return false;        
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="information">
+        First Name: <input type="text" id="fname"><br><br>
+        Last Name: <input type="text" id="lname"><br><br><br>
+        Description:<br> <input type="text" id="description" placeholder="Enter description:"><br>
+        <input type="submit" id="submitButton">
+    </form>
+    <div id="allContacts">
+    </div>
+</body>
+</html>
