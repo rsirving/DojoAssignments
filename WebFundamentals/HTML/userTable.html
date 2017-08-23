@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Table</title>
+    <style>
+        table {
+            border: 1px solid black;
+        }
+        th {
+            width: 125px;
+            text-align: left;
+            border-bottom: 2px solid black;
+        }
+        #userInput {
+            text-align: right;
+            width: fit-content;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#submitButton').click(function(){
+                var fname = $('#fname').val(), 
+                    lname = $('#lname').val(),
+                    email = $('#email').val(),
+                    phoneNum = $('#phoneNum').val(),
+                    markUp = "<tr><td>" + fname + "</td><td>" + lname + "</td><td>" + email + "</td><td>" + phoneNum + "</td></tr>";   
+                $('table').append(markUp);
+            });
+            $('form').submit(function(){
+                return false;        
+            });
+        });
+    </script>    
+</head>
+<body>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Address</th>
+            <th>Phone #</th>
+        </tr>
+    </table>
+    <div id="userInput">
+        <h1>Add New User</h1>
+        <hr>
+        <form>
+            First Name: <input type="text" id="fname" placeholder="First Name"><br>
+            Last Name: <input type="text" id="lname" placeholder="Last Name"><br>
+            Email Address: <input type="text" id="email"placeholder="Email Address"><br>
+            Phone #: <input type="text" id="phoneNum" placeholder="Phone Number"><br>
+            <input type="submit" value="submit" id="submitButton"><br>
+        </form>
+    </div>
+</body>
+</html>

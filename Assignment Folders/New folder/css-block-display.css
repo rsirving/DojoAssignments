@@ -1,0 +1,45 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+#wrapper {
+    background-color: #D4D2AE;
+    width: 1136px;
+    padding: 20px;
+}
+h1 {
+    display: inline-block;
+    font-size: 45px;
+}
+#headerRow {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+.row {
+    display: block;
+}
+
+.headerimg {
+    width: 150px; 
+    height: 100px;
+    display: inline-block;
+}
+.box {
+    display: inline-block;
+    border: 5px solid black;
+    width: 150px;
+    padding: 30px;
+    margin: 2px;
+}
+.blue {
+    background-color: powderblue;
+}
+.pink {
+    background-color: pink;
+}
+#domo {
+    height:150px;
+}

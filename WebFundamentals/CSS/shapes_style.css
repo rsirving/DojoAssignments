@@ -1,0 +1,17 @@
+#square {
+    width: 100px;
+    height: 100px;
+    background: blue;
+}
+#circle {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    border-radius: 50px;
+}
+#uptriangle {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    
+}

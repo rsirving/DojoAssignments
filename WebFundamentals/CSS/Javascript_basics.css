@@ -1,0 +1,41 @@
+#wrapper {
+    background-color: navy;
+    padding: 3px;
+    width: 970px;
+    color: lightblue;
+}
+#header {
+    background-color:#F63535;
+    width: 960px;
+    height: 50px;
+    margin: 3px;
+}
+#navigation {
+    background-color: #006E91;
+    width: 200px;
+    display: inline-block;
+    margin: 3px;
+    padding: 2px;
+    font-size: 12px;
+}
+#mainBody {
+    background-color: #000024;
+    width: 735px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 3px;
+    padding: 5px;
+    color: lightblue;
+}
+#info {
+    background-color: #747474;
+    width: 960px;
+    height: 40px;
+    margin: 3px;
+}
+code {
+    color: blue;
+}
+a {
+    color: #5EBBDA;
+}

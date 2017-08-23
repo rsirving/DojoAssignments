@@ -1,0 +1,123 @@
+#wrapper {
+    background: #2C2CFF;
+    width: 970px;
+}
+#logo {
+    width: 45%;
+    display: inline-block;
+    position: relative;
+    top: 25px;
+}
+#textsize {
+    color: #E6E6E6;
+    display: inline-block;
+    position: relative;
+    bottom: 75px;
+    left: 300px;
+}
+#yellow {
+    color: yellow;
+}
+#black {
+    color: black;
+}
+#searchback {
+    background-color: darkgray;
+    display: inline-block;
+    width: 300px;
+    position: relative;
+    bottom: 25px;
+    padding: 10px 20px;
+}
+#searchback p {
+    margin: 5px;
+}
+#searchbar {
+    background-color: white;
+    border: 1px solid gray;
+    color: gray;
+    width: 250px;
+    display: inline-block;
+    text-align: center;
+}
+#searchbutton {
+    display: inline-block;
+    background-color: darkolivegreen;
+    text-align: center;
+    padding: 5px;
+}
+#navbar {
+    background-color: #0073FF;
+    margin: 10px 20px 10px 40px;
+    padding: 5px;
+}
+#navbar ul li {
+    display: inline;
+    margin-right: 30px;
+}
+#navbar ul li a {
+    text-decoration: none;
+    color: #E6E6E6;
+    font-size: 25px;
+    text-align: right;
+}
+#navbox {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 50px;
+}
+#navbox ul li {
+    text-align: center;
+}
+#navbox ul li a {
+    color: #E6E6E6;
+}
+#textbody {
+    display: inline-block;
+    width: 650px;
+    text-align: center;
+}
+#textbody p {
+    color: #E6E6E6;
+}
+#textbody h2 {
+    color: yellow;
+    font-style: italic;
+    font-weight: lighter;
+}
+#subwrapper {
+    background-color: white;
+    width: 970px;
+    height: auto;
+    display: inline-block;
+    padding-left: 50px;
+}
+h4 {
+    font-size: 15pt;
+}
+.subWrapInfo {
+    display: inline-block;
+    width: 45%;
+    height: auto;
+    vertical-align: top;
+    text-align: center;
+}
+#bluetext {
+    color:blue;
+}
+.subWrapInfo ul li {
+    color: blue;
+}
+#links {
+    text-align: center;
+    color: #9CB0D2;
+}
+#links ul li {
+    display: inline;
+    font-size: 20pt;
+    margin-left: 40px;
+}
+#links p {
+    font-size: 10pt;
+}

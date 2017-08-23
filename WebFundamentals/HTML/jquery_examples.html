@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <style>
+            .red {
+                color: red;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                    // Visibility
+                $('#visShow').click(function(){
+                    $('.visTarget').show();
+                })
+                $('#visHide').click(function(){
+                    $('.visTarget').hide();
+                })
+                $('#visTog').click(function(){
+                    $('.visTarget').toggle();
+                })
+                    // Slide
+                $('#slideUp').click(function(){
+                    $('.slideTarget').slideUp();
+                })
+                $('#slideDown').click(function(){
+                    $('.slideTarget').slideDown();
+                })
+                $('#slideTog').click(function(){
+                    $('.slideTarget').slideToggle();
+                })
+                    // Fade
+                $('#fadeIn').click(function(){
+                    $('.fadeTarget').fadeIn();
+                })
+                $('#fadeOut').click(function(){
+                    $('.fadeTarget').fadeOut();
+                })
+                    // Class
+                $('#redButton').click(function(){
+                    $('.classTarget').addClass("red");
+                })
+                    // Position
+                $('#beforeButton').click(function(){
+                    $('#center').before($('b'));
+                })
+                $('#afterButton').click(function(){
+                    $('#center').after($('b'));
+                })
+                    // Append
+                $('#appendButton').click(function(){
+                    $('#starter').append('<p>This is the new paragraph!</p>')
+                })
+                
+                var unmask = $("h1").attr("title");
+                $('unmaskButton').click(function(){
+                    $("div.reveal").text(unmask);
+                }); // Couldn't make this work.
+            })
+        </script>
+    </head>
+    <body>
+        <h1>jQuery Function Gallery</h1>
+        <!-- Hide, Show, Toggle  -->
+        <div>
+            <h2 class="visTarget">Visibility</h2>
+            <p class="visTarget">Click the buttons to hide, show, or toggle the visibility of this paragraph!</p>
+            <button type="button" id="visShow">Show!</button>
+            <button type="button" id="visHide">Hide!</button>
+            <button type="button" id="visTog">Toggle!</button>
+        </div>
+        <!-- slideDown, slideUp, slideToggle -->
+        <div>
+            <h2 class="slideTarget">Slide</h2>
+            <p class="slideTarget">Click the buttons to slide this paragraph!</p>
+            <button type="button" id="slideDown">Down!</button>
+            <button type="button" id="slideUp">Up!</button>
+            <button type="button" id="slideTog">Toggle!</button>
+        </div>
+        <!-- fadeIn, fadeOut -->
+        <div>
+            <h2 class="fadeTarget">Fade</h2>
+            <p class="fadeTarget">Click the buttons to fade this paragraph in and out!</p>
+            <button type="button" id="fadeIn">Fade in!</button>
+            <button type="button" id="fadeOut">Fade out!</button>
+        </div>
+        <!-- addClass -->
+        <div>
+            <h2 class="classTarget">addClass</h2>
+            <p class="classTarget">Click the button to change the paragraph's class to 'red'!</p>
+            <button type="button" id="redButton">Red!</button>
+        </div>
+        <!-- before, after -->
+        <div>
+            <h2>Before / After</h2>
+            <p id="center">Click the buttons to move the bold text!</p><b>MOVE</b>
+            <button type="button" id="beforeButton">Before!</button>
+            <button type="button" id="afterButton">After!</button>
+        </div>
+        <div>
+            <h2>Append</h2>
+            <p id="starter">Click the button to add a new paragraph!</p>
+            <button type="button" id="appendButton">Append!</button>
+        </div>
+        <div>
+            <h2>attr</h2>
+            <p id="spy">Click the button to reveal this paragraph's hidden ID!</p>
+            <p>The heading of this paragraph has the id </p><span id="reveal"></span>
+            <button type="button" id="revealButton">Unmask!</button>
+        </div>
+    </body>
+</html>

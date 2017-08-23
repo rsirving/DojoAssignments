@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Disappearing Cat</title>
+        <style>
+            img {
+                display: inline-block;
+                border: 3px solid black;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>        
+        <script>
+            $(document).ready(function(){
+                $('img').click(function(){
+                    $(this).fadeOut();
+                })
+                $('button').click(function(){
+                     $('img').show();
+                })
+            })        
+        </script>
+    </head>
+    <body>
+        <button type="button">Restore</button>
+        <br>
+        <img src="catSquare.jpg"/>
+        <img src="catSquare.jpg"/>
+        <img src="catSquare.jpg"/>
+        <img src="catSquare.jpg"/>
+        <br>
+        <img src="catSquare.jpg"/>
+        <img src="catSquare.jpg"/>
+        <img src="catSquare.jpg"/>
+        <img src="catSquare.jpg"/>
+    </body>
+</html>

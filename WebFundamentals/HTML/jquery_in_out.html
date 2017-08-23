@@ -1,0 +1,65 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            div {
+                height: 400px;
+                width: 200px;
+                margin: 5px;
+                display: inline-block;
+            }
+            img {
+                height: 400px;
+                width: 200px;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('.paint').hide();
+                $('div').hover(function(){
+                    $(this).find('img').toggle()}, function(){
+                    $(this).find('img').toggle()}
+                );
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <img src="catRect.jpg" alt-img="paintRect.png"/>
+            <img src="paintRect.png" class="paint" />
+        </div>
+        <div>
+            <img src="catRect.jpg" />
+            <img src="paintRect.png" class="paint" />
+        </div>
+        <div>
+            <img src="catRect.jpg" />
+            <img src="paintRect.png" class="paint" />
+        </div>
+        <div>
+            <img src="catRect.jpg" />
+            <img src="paintRect.png" class="paint" />
+        </div>
+        <br>
+        <div>
+            <img src="catRect.jpg" />
+            <img src="paintRect.png" class="paint" />
+        </div>
+        <div>
+            <img src="catRect.jpg" />
+            <img src="paintRect.png" class="paint" />
+        </div>
+        <div>
+            <img src="catRect.jpg" />
+            <img src="paintRect.png" class="paint" />
+        </div>
+        <div>
+            <img src="catRect.jpg" />
+            <img src="paintRect.png" class="paint" />
+        </div>
+    </body>
+</html>

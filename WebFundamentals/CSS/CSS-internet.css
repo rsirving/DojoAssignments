@@ -1,0 +1,164 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#wrapper {
+    width: 1000px;
+    padding: 5px;
+}
+#globe {
+    width: 125px;
+    display: inline-block;
+    position: relative;
+    top: 35px;
+}
+#header {
+    font-size: 45pt;
+    font-weight: lighter;
+    display: inline-block;
+}
+#banner {
+    background-color: blue;
+    color: white;
+    font-size: 20pt;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+}
+#sidebar {
+    width: 200px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: 15px;
+}
+#videobutton {
+    background-color: blue;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin: 5px;
+    width: 150px;
+    color: white;
+    text-align: center;
+}
+#resourcebutton {
+    background-color: orange;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin: 5px;
+    width: 150px;
+    color: white;
+    text-align: center;
+}
+.blue {
+    color: blue;
+}
+#red {
+    color: red;
+}
+a {
+    text-decoration: none;
+}
+#advert {
+    background-image: url("ad_background.png");
+    background-color: #cccccc;
+    width: 165px;
+    height: 250px;
+    padding: 20px 15px 10px;
+    margin-top: 20px;
+}
+#adtext {
+    font-size: 20pt;
+    color: white;
+    text-align: center;
+}
+#ninja {
+    width: 75px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+#learnbutton {
+    background-color: #00E3E3;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+}
+#homesec {
+    display: inline-block;
+    width: 200px;
+    margin-right: 325px;
+    vertical-align: top;
+    position: relative;
+    top: 10px;
+}
+#homesec p{
+    display: inline-block;
+    color: blue;
+    vertical-align: top;
+}
+#home {
+    width: 25px;
+}
+#phonesec {
+    display: inline-block;
+    height: 100px;
+}
+#phoneinfo {
+    display: inline-block;
+    width: 205px;
+}
+#phonesec p{
+    display: inline-block;
+}
+#phonesec h2{
+    display: inline-block;
+    color: #04aeda;
+}
+#phone {
+    display: inline-block;
+    width: 50px;
+}
+#body {
+    width: 790px;
+    display: inline-block;
+    vertical-align: top;
+}
+#text {
+    position: relative;
+    bottom: 25px;
+}
+.list {
+    position: relative;
+    left: 50px;
+    padding-right: 105px;
+}
+#clientserver {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+h3 {
+    color: blue;
+    font-size: 15pt;
+}
+#Big3 {
+    border-top: 5px solid blue;
+    border-left: 5px solid blue;
+    border-right: 5px solid blue;
+    width: 750px;
+    position: relative;
+    left: 215px;
+    padding: 5px;
+}
+#Big3Pic {
+    width: 125px;
+}
+#big3info {
+    display: inline-block;
+    width: 570px;
+    position: relative;
+    bottom: 10px;
+}

@@ -1,0 +1,88 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: Consolas;
+}
+#wrapper {
+    width: 1000px;
+    background-color: #DDDFD3;
+    padding: 10px;
+}
+.blue {
+    color: #2ADFCB;
+}
+#header {
+    width: 980px;
+    background-color: #39B0AC;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+#icon {
+    display: inline-block;
+    width: 40px;
+    margin-top: 5px;
+}
+h1 {
+    display: inline-block;
+    position: relative;
+    bottom: 10px;
+}
+#header ul {
+    display: inline-block;
+    position: relative;
+    bottom: 15px;
+    left: 75px;
+}
+#header ul li {
+    display: inline-block;
+    text-align: right;
+}
+#header ul li a{
+    color: #f7f7f7;
+}
+#body {
+    background-color: #FBE691;
+    width: 980px;
+    padding: 5px;
+    color: white;
+    font-size: 10pt;
+}
+#body p {
+    margin: 5px;
+}
+#littleboxes {
+    width: 700px;
+    display: inline-block;
+    padding: 0px 10px;
+}
+.bodybox {
+    background-color: #154044;
+    display: inline-block;
+    margin: 10px;
+    vertical-align: top;
+    padding: 5px;
+    height: 117px;
+}
+#whatis {
+    width: 220px;
+    height: auto;
+}
+.firstrow {
+    width: 190px;
+}
+.secondrow {
+    width: 303px;
+}
+#push {
+    width: 645px;
+}
+#footer {
+    width: 990px;
+    background-color: #39B0AC;
+    padding: 20px 0px;
+    margin: 10px 0px;
+    text-align: center;
+}
+#footer a{
+    color: #502F93;
+}

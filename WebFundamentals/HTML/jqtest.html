@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#visShow').click(function(){
+                    $('.visTarget').show();
+                })
+                $('#visHide').click(function(){
+                    $('.visTarget').hide();
+                })
+                $('#visTog').click(function(){
+                    $('.visTarget').toggle();
+                })
+
+                $('#slideUp').click(function(){
+                    $('.slideTarget').slideUp();
+                })
+                $('#slideDown').click(function(){
+                    $('.slideTarget').slideDown();
+                })
+                $('#slideTog').click(function(){
+                    $('.slideTarget').slideToggle();
+                })
+
+                $('#fadeIn').click(function(){
+                    $('.fadeTarget').fadeIn();
+                })
+                $('#fadeOut').click(function(){
+                    $('.fadeTarget').fadeOut();
+                })
+
+                $('#beforeButton').click(function(){
+                    $("#center").before($('b'));
+                })
+                $('#afterButton').click(function(){
+                    $('#center').after($('b'));
+                })
+
+                $('#appendButton').click(function(){
+                    $('#starter').append("<p>This is the new paragraph!</p>")
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <!-- Click -->
+        <!-- Hide, Show, Toggle  -->
+        <div id="">
+            <button type="button" id="visShow">Show!</button>
+            <button type="button" id="visHide">Hide!</button>
+            <button type="button" id="visTog">Toggle!</button>
+            <h1 class="visTarget">Visibility</h1>
+            <p class="visTarget">Click the buttons to hide, show, or toggle the visibility of this paragraph!</p>
+        </div>
+        <!-- slideDown, slideUp, slideToggle -->
+        <div id="">
+            <button type="button" id="slideDown">Down!</button>
+            <button type="button" id="slideUp">Up!</button>
+            <button type="button" id="slideTog">Toggle!</button>
+            <h1 class="slideTarget">Slide</h1>
+            <p class="slideTarget">Click the buttons to slide this paragraph!</p>
+        </div>
+        <!-- fadeIn, fadeOut -->
+        <div id="">
+            <button type="button" id="fadeIn">Fade in!</button>
+            <button type="button" id="fadeOut">Fade out!</button>
+            <h1 class="fadeTarget">Fade</h1>
+            <p class="fadeTarget">Click the buttons to fade this paragraph in and out!</p>
+        </div>
+        <!-- addClass -->
+        <div id=""></div>
+        <!-- before, after -->
+        <div id="">
+            <button type="button" id="beforeButton">Before!</button>
+            <button type="button" id="afterButton">After!</button>
+            <h1>Before / After</h1>
+            <p id="center">Click the buttons to move the bold text!</p><b>MOVE</b>
+        </div>
+        <div id="">
+            <button type="button" id="appendButton">Append!</button>
+            <h1>Append</h1>
+            <p id="starter">Click the button to add a new paragraph!</p>
+        </div>
+    </body>
+</html>

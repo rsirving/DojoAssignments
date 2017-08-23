@@ -1,0 +1,140 @@
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~
+$ cd desktop
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop
+$ mkdir gittest
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop
+$ cd gittest
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest
+$ git init
+Initialized empty Git repository in C:/Users/Stephen (Work)/Desktop/gittest/.git/
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ touch index.html
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ touch styles.css
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ touch aboutMe.txt
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        aboutMe.txt
+        index.html
+        styles.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ git add aboutMe.tt
+fatal: pathspec 'aboutMe.tt' did not match any files
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ git add aboutMe.txt
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   aboutMe.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        index.html
+        styles.css
+
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ git add index.html
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ git add styles.css
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ git commit -m "This is a test."
+[master (root-commit) d3063eb] This is a test.
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 aboutMe.txt
+ create mode 100644 index.html
+ create mode 100644 styles.css
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ git add aboutMe.txt
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ git commit -m "Updated aboutMe.txt"
+[master 68599fd] Updated aboutMe.txt
+ 1 file changed, 1 insertion(+)
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ git add aboutMe.txt
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ git commit -m "added my favorite movie"
+[master aa0241b] added my favorite movie
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ git log
+commit aa0241b3a02d2f136f67f5847ea46cd99d02840d (HEAD -> master)
+Author: Stephen <rstephenirving@gmail.com>
+Date:   Mon Aug 14 15:53:11 2017 -0400
+
+    added my favorite movie
+
+commit 68599fde4c07b31bab7ab762a73eed15a118321e
+Author: Stephen <rstephenirving@gmail.com>
+Date:   Mon Aug 14 15:52:15 2017 -0400
+
+    Updated aboutMe.txt
+
+commit d3063eb35c1268e61ecf43829d0f0bfe24cebc3c
+Author: Stephen <rstephenirving@gmail.com>
+Date:   Mon Aug 14 15:50:19 2017 -0400
+
+    This is a test.
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master)
+$ git revert -n HEAD
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master|REVERTING)
+$ git status
+On branch master
+You are currently reverting commit aa0241b.
+  (all conflicts fixed: run "git revert --continue")
+  (use "git revert --abort" to cancel the revert operation)
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   aboutMe.txt
+
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master|REVERTING)
+$ git add aboutMe.txt
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/gittest (master|REVERTING)
+$ git commit -m "Added my favorite book."
+[master 3740f20] Added my favorite book.
+ 1 file changed, 1 insertion(+), 1 deletion(-)

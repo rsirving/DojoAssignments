@@ -1,0 +1,71 @@
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop
+$ mkdir GitHubRepoAssignment
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop
+$ cd GitHubRepoAssignment
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/GitHubRepoAssignment
+$ git init
+Initialized empty Git repository in C:/Users/Stephen (Work)/Desktop/GitHubRepoAssignment/.git/
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/GitHubRepoAssignment (master)
+$ touch readme.md
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/GitHubRepoAssignment (master)
+$ echo 'This is an assignment' > readme.md
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/GitHubRepoAssignment (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        readme.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/GitHubRepoAssignment (master)
+$ git add readme.md
+warning: LF will be replaced by CRLF in readme.md.
+The file will have its original line endings in your working directory.
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/GitHubRepoAssignment (master)
+$ git commit -m "This is my first commit."
+[master (root-commit) 8554396] This is my first commit.
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.md
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/GitHubRepoAssignment (master)
+$ git push
+fatal: No configured push destination.
+Either specify the URL from the command-line or configure a remote repository using
+
+    git remote add <name> <url>
+
+and then push using the remote name
+
+    git push <name>
+
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/GitHubRepoAssignment (master)
+$ git remote add GitHubRepoAssignment https://github.com/rsirving/GitHubRepoAssignment
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/GitHubRepoAssignment (master)
+$ git push GitHubRepoAssignment
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream GitHubRepoAssignment master
+
+
+Stephen (Work)@LAPTOP-Q08OJPP3 MINGW64 ~/desktop/GitHubRepoAssignment (master)
+$ git push --set-upstream GitHubRepoAssignment master
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 243 bytes | 243.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/rsirving/GitHubRepoAssignment
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from GitHubRepoAssignment.
