@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
+    <script>
+        $(document).ready(function(){
+            $('.ninja').hide();
+            $('.imgZero').click(function(){
+                $('.imgZero').toggle();
+            });
+            $('.imgOne').click(function(){
+                $('.imgOne').toggle();
+            });
+            $('.imgTwo').click(function(){
+                $('.imgTwo').toggle();
+            });
+            $('.imgThree').click(function(){
+                $('.imgThree').toggle();
+            });
+            $('.imgFour').click(function(){
+                $('.imgFour').toggle();
+            });
+        });
+    </script>
+    <style>
+        img {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <img class="imgZero" src="cat0.png"/>
+    <img class="imgZero ninja" src="ninja0.png"/>
+    <br>
+    <img class="imgOne" src="cat1.png"/>
+    <img class="imgOne ninja" src="ninja1.png"/>    
+    <br>
+    <img class="imgTwo"src="cat2.png"/>
+    <img class="imgTwo ninja" src="ninja2.png"/>    
+    <br>
+    <img class="imgThree"src="cat3.png"/>
+    <img class="imgThree ninja" src="ninja3.png"/>    
+    <br>
+    <img class="imgFour"src="cat4.png"/>
+    <img class="imgFour ninja" src="ninja4.png"/>    
+</body>
+</html>

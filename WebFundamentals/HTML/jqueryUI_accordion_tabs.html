@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Accordions and Tabs and Other Things</title>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <style>
+            .blue {
+                background-color: red;
+            }
+        </style>
+        <script>
+            $( function() {
+                $( "#button" ).on( "click", function() {
+                $( "*" ).addClass( "blue", 1000 );
+                } );
+            } );
+        </script>
+    </head>
+    <body>
+        <div id="tabs">
+            <ul>
+                <li><a href="#tab-1">First Tab</a></li>
+                <li><a href="#tab-2">Second Tab</a></li>
+                <li><a href="#tab-3">Third Tab</a></li>
+            </ul>
+            <div id="tab-1">
+                <p>This is the first tab. It is the tab that comes first. The other tabs come after it. There are no tabs before it. It is the first tab.</p>
+            </div>
+            <div id="tab-2">
+                <p>This is the second tab. It is the tab that comes second. The first tab comes before it, and the third tab comes after it. If there was a fourth tab, it would also come after the second tab, but there isn't.</p>
+            </div>
+            <div id="tab-3">
+                <p>This is the third tab. It is the tab that comes third. The first and second tabs come before it. There are no tabs after it, but if there was a fourth tab, it would, but there isn't, so it doesn't.</p> 
+            </div>
+        </div>
+
+        <div id="accordion">
+            <h3>Accordion 1</h3>
+            <div>
+                <p>This is the first part of the accordion. It's the one at the very beginning. See what I wrote in the first tab up top? Basically the same, but for an accordion.</p>
+                <p>Don't open the third accordion, by the way. There's a monster.</p>
+            </div>
+            <h3>Accordion 2</h3>
+            <div>
+                <p>This is the second part of the accordion. Seriously, look at the second tab up top. Same deal.</p>
+                <p>And I'm not joking about the third accordion. There is a monster, DON'T open it.</p>
+            </div>
+            <h3>Accordion 3</h3>
+            <div>
+                <p>Okay, there isn't actually a monster. He's on his lunch break. But if he was here, he'd be terrifying.</p>
+            </div>
+        </div>
+        <script>
+            $("#tabs").tabs();
+            $("#accordion").accordion();
+        </script>
+
+        <button id="button">Turn it all blue!</button>
+    </body>
+</html>

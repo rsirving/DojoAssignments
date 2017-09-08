@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        var num;
+        $(document).on("click", ".front", function(){
+            num = $(this).attr('id');
+            $(this).attr("src", "http://pokeapi.co/media/sprites/pokemon/back/"+num+".png");
+            $(this).attr("class", "back");
+        });
+        $(document).on("click", ".back", function(){
+            num = $(this).attr('id');
+            $(this).attr("src", "http://pokeapi.co/media/sprites/pokemon/"+num+".png");
+            $(this).attr("class", "front");
+        });
+        $(document).ready(function(){
+            var markup = "";
+            for (var i = 1; i<=151; i++) {
+                markup = "<img src=http://pokeapi.co/media/sprites/pokemon/"+i+".png id="+i+" class=front />";
+                $('body').append(markup);
+            };
+        });
+    </script>    
+</head>
+<body>
+    <h3 style="text-align:center">Click to see from the back!</h3>
+</body>
+</html>

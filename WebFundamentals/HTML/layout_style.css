@@ -1,0 +1,36 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+#wrapper {
+    width: 100%;
+    padding: 1%;
+}
+
+#header {
+    background-color: #dddddd;
+    padding: 1%;
+    margin-bottom: .5%;
+}
+a {
+   background-color: #dddddd;
+   color: purple;
+   border: 1px solid black;
+   display: inline-block;
+   width: fit-content;
+   padding: .4%;
+}
+.column {
+    display: inline-block;
+    vertical-align: top;
+    margin: 1% 2% 0% 0%;
+}
+@media only screen and (max-width: 708px) {
+    .twelve-s {width: 100%;}
+    .four-s {width: 30%;}
+    #navbar {display: none;}
+}
+
+@media only screen and (min-width: 709px) {
+    .three-l {width: 20%;}
+}

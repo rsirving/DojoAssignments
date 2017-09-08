@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Houses of Westeros</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        img {
+            width: 20%;
+            height: auto;
+            margin: 1%;
+            display: inline-block;
+        }
+        #houseInfo {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        h2 {
+            font-style: italic;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        });
+        var urlbase="https://www.anapioficeandfire.com/api/houses/";
+        $(document).on("click", "img", function(){
+            var houseid = $(this).attr("id");
+            $.get(urlbase + houseid, function(data){
+                var html_str = "";
+                var titles = "<ul>";
+                for (var i = 0; i < data.titles.length; i++) {
+                    titles += "<li>" + data.titles[i] + "</li>";  
+                } titles += "</ul>";
+                html_str += `<div><h1>` + data.name + ` <h2>` + data.words + `</h2><h3>Titles:</h3> ` + titles + ` </div>`;
+                $('#houseInfo').html(html_str);
+                $('#houseInfo').hide();
+                $('#houseInfo').fadeIn(1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <img id="17" src="baratheon-sigil.png" />
+    <img id="229" src="lannister-sigil.png" />
+    <img id="362" src="stark-sigil.png" />
+    <img id="378" src="targaryen-sigil.png" />
+    <div id="houseInfo">
+    </div>
+</body>
+</html>

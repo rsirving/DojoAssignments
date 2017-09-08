@@ -1,0 +1,64 @@
+<!-- {"coord":{"lon":-0.13,"lat":51.51},
+"weather":
+    [{"id":803,
+    "main":"Clouds",
+    "description":"broken clouds",
+    "icon":"04d"}],
+"base":"stations",
+"main":
+    {"temp":293.24,
+    "pressure":1017,
+    "humidity":52,
+    "temp_min":292.15,
+    "temp_max":294.15},
+"visibility":10000,
+"wind":
+    {"speed":5.7,
+    "deg":260},
+"clouds":{"all":64},
+"dt":1503588000,
+"sys":
+    {"type":1,
+    "id":5091,
+    "message":0.0061,
+    "country":"GB",
+    "sunrise":1503550892,
+    "sunset":1503601360},
+"id":2643743,
+"name":"London",
+"cod":200} -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var urlBase = "http://api.openweathermap.org/data/2.5/weather?q=";
+            var appID = "&&APPID=5f3d76119f045fef0d5ff4adcbc089d6";
+            $('#submit').click(function() {
+                url = urlBase + $('#location').val() + appID;
+                $.get(url, function(res) {
+                    var temp= Math.floor((res.main.temp - 273.15) * 9/5 + 32);
+                    var html_src = "";
+                    html_src += `<div><h2>`+res.name+` </h2><h1>`+temp+`</h1></div>`
+                $('#result').append(html_src);
+                }, 'json');
+            });
+            $('form').submit(function() {
+                return false;
+                $('location').val("");
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" id="location" placeholder="Search weather!">
+        <input type="submit" id="submit">
+    </form>
+    <div id="result">
+    </div>
+</body>
+</html>
