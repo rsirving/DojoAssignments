@@ -1,0 +1,66 @@
+1.
+SELECT first_name, last_name, email, address.address FROM customer, address
+
+  WHERE address.city_id = 312 AND customer.address_id = address.address_id
+2.
+SELECT film.film_id, film.title AS title, film.description AS description, film.release_year AS release_year, film.rating AS rating, film.special_features AS special_features, category.name AS genre FROM film
+
+  JOIN film_category ON film_category.film_id = film.film_id
+
+  JOIN category ON category.category_id = film_category.category_id
+
+ WHERE category.name = 'Comedy'
+3.
+SELECT actor.actor_id AS actor_id, CONCAT(actor.first_name, ' ', actor.last_name) AS actor_name, film.film_id AS film_id, film.title AS title, film.description AS description, film.release_year AS release_year FROM actor
+
+  JOIN film_actor ON film_actor.actor_id = actor.actor_id
+
+  JOIN film ON film.film_id = film_actor.film_id
+
+ WHERE actor.actor_id = 5
+4.
+SELECT store.store_id AS store_id, city.city_id AS city_id, customer.first_name AS first_name, customer.last_name AS last_name, customer.email AS email, address.address AS address FROM customer
+
+  JOIN address ON address.address_id = customer.address_id
+
+  JOIN city ON city.city_id = address.city_id
+
+  JOIN store ON store.store_id = customer.store_id
+
+ WHERE city.city_id IN (1, 42, 312, 459) AND store.store_id = 1
+5.
+SELECT film.title AS title, film.release_year AS release_year, film.rating AS rating, film.special_features AS special_features FROM film
+
+  JOIN film_actor on film_actor.film_id = film.film_id
+
+  JOIN actor ON actor.actor_id = film_actor.actor_id
+
+ WHERE actor.actor_id = 15 AND film.rating = 'G' AND film.special_features LIKE '%behind the scenes%'
+6.
+SELECT film.film_id AS film_id, film.title AS title, actor.actor_id AS actor_id, CONCAT(actor.first_name, ' ', actor.last_name) AS actor_name FROM actor
+
+  JOIN film_actor ON film_actor.actor_id = actor.actor_id
+
+  JOIN film ON film.film_id = film_actor.film_id
+
+ WHERE film.film_id = 369
+7.
+SELECT film.title AS title, film.description AS description, film.release_year AS release_year, film.rating AS rating, category.name AS genre FROM film
+
+  JOIN film_category ON film_category.film_id = film.film_id
+
+  JOIN category ON category.category_id = film_category.category_id
+
+ WHERE category.name = 'Drama' AND film.rental_rate = 2.99
+8.
+SELECT actor.actor_id AS actor_id, CONCAT(actor.first_name, ' ', actor.last_name) AS actor_name, film.film_id AS film_id, film.title AS title, film.description AS description, film.release_year AS release_year, film.rating AS rating, film.special_features AS special_features, category.name AS genre FROM film
+
+  JOIN film_actor ON film_actor.film_id = film.film_id
+
+  JOIN actor ON actor.actor_id = film_actor.actor_id
+
+  JOIN film_category ON film_category.film_id = film.film_id
+
+  JOIN category ON category.category_id = film_category.category_id
+
+ WHERE actor.first_name = 'SANDRA' AND actor.last_name = 'KILMER' AND category.name = 'Action'

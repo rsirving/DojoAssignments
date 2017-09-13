@@ -2,9 +2,40 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Document</title>
+        <title>Great Number Game</title>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+            {% if userguess == answer %}
+            #guess {
+                display: none;
+            }
+            {% endif %}
+        </style>
     </head>
     <body>
-        
+        <h1>The Great Number Game!</h1>
+        <p>I am thinking of a number between 1 and 100...<p>
+        <p>Take a guess!</p>
+        <p> {{answer}} {{userguess}} </p>
+        {% if userguess == answer %}
+        <p> Correct! </p>
+        <form action='/reset' method='post'>
+            <input type='submit' value='Play again!'>
+        </form>
+        {% elif userguess > answer %}
+        <p> Too High! </p>
+        {% elif userguess < answer %}
+        <p> Too Low! </p>
+        {% else %}
+        <p></p>
+        {% endif %}
+        <form id="guess" action='/guess' method='post'>
+            <input type="number" name="guess" min='1' max ='100'/>
+            <input type='submit' value="Make Guess"/>
+        </form>
+
     </body>
 </html>

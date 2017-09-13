@@ -1,0 +1,24 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Survey</title>
+    </head>
+    <body>
+        <form action='/results' method='post'>
+            <div class="option">Your Name: <input type='text' name='name'></div>
+            <div class="option">Dojo Location: <select name="location">
+                <option value="Washington, DC">Washington, DC</option>
+                <option value="San Jose">San Jose</option>
+                <option value="Mars">Mars</option>
+            </select></div>
+            <div class="option">Favorite Language: <select name="language">
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="Javascript">Javascript</option>
+            </select></div>
+            <div class="option">Comment (Optional): <br>
+            <textarea name="comment" rows="10" cols="30"></textarea></div>          
+            <input type='submit' value='create user'>
+        </form>
+    </body>
+</html>

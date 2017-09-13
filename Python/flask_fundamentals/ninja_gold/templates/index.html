@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ninja Schedule</title>
+        <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        .option {
+            display: inline-block;
+            border: 1px solid black;
+        }
+        </style>
+    </head>
+    <body>
+        <p>Your gold: {{gold}}</p>
+        <div class="option">
+            <h2>FARM</h2>
+            <p>Earns 10-20 gold</p>
+            <form action='/process_gold' method='post'>
+                <input type='hidden' name='activity' value='farm'>
+                <input type='submit' value="Find Gold!">
+            </form>
+        </div>
+        <div class="option">
+            <h2>CAVE</h2>
+            <p>Earns 5-10 gold</p>
+            <form action='/process_gold' method='post'>
+                <input type='hidden' name='activity' value='cave'>
+                <input type='submit' value="Find Gold!">
+            </form>
+        </div>
+        <div class="option">
+            <h2>HOUSE</h2>
+            <p>Earns 2-5 gold</p>
+            <form action='/process_gold' method='post'>
+                <input type='hidden' name='activity' value='house'>
+                <input type='submit' value="Find Gold!">
+            </form>
+        </div>
+        <div class="option">
+            <h2>CASINO</h2>
+            <p>Earns/Loses 0-50 gold</p>
+            <form action='/process_gold' method='post'>
+                <input type='hidden' name='activity' value='casino'>
+                <input type='submit' value="Find Gold!">
+            </form>
+        </div>
+        <div>
+            {% for i in activities %}
+            <p>{{i}}</p>
+            {% endfor %}
+        </div>
+    </body>
+</html>

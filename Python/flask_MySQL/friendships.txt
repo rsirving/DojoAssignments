@@ -1,0 +1,9 @@
+SELECT user1.first_name AS first_name, user1.last_name AS last_name, user2.first_name AS friend_first_name, user2.last_name AS friend_last_name FROM users
+
+  LEFT JOIN friendships on users.user_id = friendships.friend_id
+
+  LEFT JOIN users AS user2 ON friendships.friend_id = users.user_id
+
+ ORDER BY user2.last_name;
+
+# It SHOULD work, but I couldn't test it because MySQL Workbench is literally terrible.
