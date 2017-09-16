@@ -66,13 +66,11 @@ def login():
 def wall():
     if not 'user_id' in session:
         return redirect('/')
-    userQuery = "SELECT * FROM users"
     messageQuery = "SELECT CONCAT(users.first_name, ' ', users.last_name) AS user_name, users.id AS user_id, messages.id AS message_id, messages.message AS message, DATE_FORMAT(messages.created_at, '%M %D, %Y') AS created_at FROM messages JOIN users ON users.id = messages.user_id"
     commentQuery = "SELECT CONCAT(users.first_name, ' ', users.last_name) AS user_name, users.id AS user_id, messages.id AS message_id, comments.id AS comment_id, comments.comment AS comment, DATE_FORMAT(comments.created_at, '%M %D, %Y') AS created_at FROM comments JOIN messages ON comments.message_id = messages.id JOIN users on messages.user_id = users.id"
-    users = mysql.query_db(userQuery)
     messages = mysql.query_db(messageQuery)
     comments = mysql.query_db(commentQuery)
-    return render_template('wall.html', users=users, messages=messages, comments=comments)
+    return render_template('wall.html', messages=messages, comments=comments)
 @app.route('/message', methods=['post'])
 def message():
     query = "INSERT INTO messages (user_id, message, created_at, updated_at) VALUES (:user_id, :message, NOW(), NOW())"
@@ -81,12 +79,11 @@ def message():
     return redirect('/wall')
 @app.route('/comment', methods=['post'])
 def comment():
-    print "COMMENT CHECK"
     query = "INSERT INTO comments (user_id, message_id, comment, created_at, updated_at) VALUES (:user_id, :message_id, :comment, NOW(), NOW())"
     data = {'user_id': session['user_id'], 'message_id': request.form['message_id'], 'comment': request.form['comment']}
     mysql.query_db(query, data)
     return redirect('/wall')
-@app.route('/logout')
+@app.route('/logout', methods=['GET'])
 def logout():
     session.clear()
     return redirect('/')
