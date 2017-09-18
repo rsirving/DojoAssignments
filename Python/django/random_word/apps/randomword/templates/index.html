@@ -1,0 +1,16 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Random String</title>
+    </head>
+    <body>
+        <p>Random String (attempt #{{request.session.attempts}})</p>
+        <h2>{{randstr}}</h2>
+        <form action="/random_word" name="random">
+        <input type="submit" value="Generate!">
+        </form>
+        <form action="/reset" name="reset">
+        <input type="submit" value="Reset!">
+        </form>
+    </body>
+</html>
