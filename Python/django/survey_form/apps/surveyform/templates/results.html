@@ -1,0 +1,30 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Results</title>
+        <style>
+            #thanks{
+                background-color: green;
+                border: 1px solid black;
+                width: fit-content;
+                padding: 10px;
+            }
+            #wrapper{
+                border: 1px solid black;
+                width: fit-content;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="thanks">Thanks for submitting this form! You have submitted {{request.session.repeats}} time(s)!</p>
+        <div id="wrapper">
+            <h2>Submitted Info</h2>
+            <div class="result">Name:{{ request.session.results.name }}</div>
+            <div class="result">Dojo Location: {{ request.session.results.location }}</div>
+            <div class="result">Favorite Language: {{ request.session.results.language }}</div>
+            <div class="result">Comment: {{ request.session.results.comment }}</div>
+            <a href="/"><button>Go back!</button></a>
+        </div>
+    </body>
+</html>
