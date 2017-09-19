@@ -1,0 +1,55 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Words</title>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+            .wrapper {
+                width: 45%;
+                display: inline-block;
+                vertical-align: top;
+            }
+            form {
+                width: fit-content;
+            }
+            .red {
+                color: red;
+            }
+            .blue {
+                color: blue;
+            }
+            .green {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <form action="/addwords" method="POST">
+                {% csrf_token %}
+                <h2>Add a new word</h2>
+                <input type="text" name="word"><br><br>
+                Choose color:<br>
+                <input type="radio" name="color" value="red">Red<br>
+                <input type="radio" name="color" value="blue">Blue<br>
+                <input type="radio" name="color" value="green">Green<br><br>
+                <input type="hidden" name="size" value="small">
+                <input type="checkbox" name="size" value="big">Show in BIG fonts!<br>
+                <input type="submit" value="Add to Session">
+            </form>
+        </div>
+        <div class="wrapper">
+            <a href="/clear"><button>Clear Session</button></a>
+            {% for word in request.session.words %}
+                {% if word.size == "big" %}
+                    <h1 class="{{word.color}}">{{word.word}}</h1>
+                {% else %}
+                    <p class="{{word.color}}">{{word.word}}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </body>
+</html>

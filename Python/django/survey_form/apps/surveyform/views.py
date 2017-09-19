@@ -8,9 +8,7 @@ def index(request):
 def submit(request):
     if request.method == "POST":
         request.session["repeats"] += 1
-        print request.POST
         request.session["results"] = request.POST
-        print request.session["results"]
         return redirect("/results")
     else:
         return redirect("/")
