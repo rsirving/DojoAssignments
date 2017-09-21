@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django import forms
-from django.utils import timezone
 from .models import User
 from .forms import userForm
 
@@ -17,7 +16,6 @@ def new(request):
         form = userForm(request.POST)
         if form.is_valid():
             model_instance = form.save(commit=False)
-            model_instance.timestamp = timezone.now()
             model_instance.save()
             return redirect('/')
     else:
