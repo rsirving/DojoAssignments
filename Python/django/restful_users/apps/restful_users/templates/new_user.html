@@ -1,0 +1,21 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>New User</title>
+        <style>
+            input{
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Add a user</h2>
+        <form method='POST'>
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="Create">
+        </form>
+        <a href="/users">Go Back</a>
+    </body>
+</html>

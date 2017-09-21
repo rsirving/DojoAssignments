@@ -1,0 +1,22 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit User</title>
+        <style>
+            input {
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Edit user {{user['id']}}</h2>
+        <form action="/users/{{user['id']}}/update" method='POST'>
+            <label for="fname">First Name:<input type="text" name="fname" id="fname" value="{{user['fname']}}" ></label>
+            <label for="lname">Last Name:<input type="text" name="lname" id="lname" value="{{user['lname']}}"></label>
+            <label for="email">Email:<input type="text" name="email" id="email" value="{{user['email']}}"></label>
+            <input type="submit" value="Update">
+        </form>
+        <a href="/users">Go Back</a>
+    </body>
+</html>

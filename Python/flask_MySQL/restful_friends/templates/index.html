@@ -1,0 +1,22 @@
+<html>
+    <head>
+      <title>Users</title>
+      <style>
+          .block {
+              display: inline-flex;
+              flex-direction: column;
+          }
+      </style>
+    </head>
+    <body>
+        <h1>Users</h1>
+        {% for user in all_users: %}
+            <a href="/users/{{user['id']}}"><p class="block">{{ user['id'] }}</p></a>
+            <p class="block">{{ user['name'] }}</p>
+            <p class="block">{{ user['email'] }}</p>
+            <p class="block">{{ user['created_at'] }}</p>
+            <hr>
+        {% endfor %}
+        <a href="/users/new">Add a new user</a>
+    </body>
+</html>    

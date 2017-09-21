@@ -1,0 +1,22 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>User</title>
+        <style>
+            p{
+                display: flex;
+                flex-direction: column;
+            }
+            a {
+                display: inline;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>User {{user.id}}</h1>
+        <p>Full Name: {{user.first_name}} {{user.last_name}}</p>
+        <p>Email: {{user.email}}</p>
+        <p>Created at: {{user.created_at}}</p>
+        <a href="/users/{{user.id}}/edit">Edit</a> <a href="/users/{{user.id}}/destroy">Delete</a>
+    </body>
+</html>
