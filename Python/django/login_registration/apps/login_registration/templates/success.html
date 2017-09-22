@@ -1,0 +1,15 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+    {% for message in messages %}
+    <h1>Success! Welcome, {{message}}!</h1>
+    {% if message.extra_tags == "registered" %}<p>Successfully registered!</p>
+    {% else %}<p>Successfully logged in!</p>
+    {% endif %}
+    {% endfor %}
+    Hey, congrats, it works.
+</body>
+</html>
