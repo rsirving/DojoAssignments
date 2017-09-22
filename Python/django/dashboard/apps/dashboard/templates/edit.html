@@ -1,0 +1,31 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Edit User</title>
+    </head>
+    <body>
+        Edit Information:
+        <form action="/editname" method="POST">
+            {% csrf_token %}
+            <input type="email" value="{{user.email}}" name="email">
+            <input type="text" value="{{user.first_name}}" name="first_name">
+            <input type="text" value="{{user.last_name}}" name="last_name">
+            <input type="submit" value="Save">
+        </form>
+        Change Password:
+        <form action="/editpassword" method="POST">
+            {% csrf_token %}
+            <input type="password" name="password">
+            <input type="password" name="password_confirmation">
+            <input type="submit" value="Update Password">
+        </form>
+        Edit Description:
+        <form action="/editdescription" method="POST">
+            {% csrf_token %}
+            <input type="text" name="description">
+            <input type="submit" value="Save">
+        </form>
+    </body>
+</html>

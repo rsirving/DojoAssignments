@@ -1,0 +1,24 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>New User</title>
+    </head>
+    <body>
+        {% if !request.session.user.admin %}
+        <h1>Nope.</h1>
+        <p>This page requires administrator access. Click <a href="/dashboard">here</a> to return to your pasture, sheep.</p>
+        {% else %}
+        <h2>Add a new user</h2>
+        <form action="/register" method="POST">
+            {% csrf_token %}
+            Email Address: <input type="email" name="email">
+            First Name: <input type="text" name="first_name">
+            Last Name: <input type="text" name="last_name">
+            Password: <input type="password" name="password">
+            Password Confirmation: <input type="password" name="password_confirm">
+            <input type="submit" value="Register">
+        </form>
+    </body>
+</html>

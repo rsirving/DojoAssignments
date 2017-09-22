@@ -1,0 +1,46 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Dashboard</title>
+    </head>
+    <body>
+        {% if request.session.user_level == 9 %}
+        <h2>Manage Users</h2>
+        {% else %}
+        <h2>All Users</h2>
+        {% endif %}
+        {% if request.session.user_level == 9 %}
+        <button><a href="/register">Add New</a></button>
+        {% endif %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Created At</th>
+                <th>User Level</th>
+                {% if request.session.user_level == 9 %}
+                <th>Actions</th>
+                {% endif %}
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.first_name}} {{user.last_name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.created_at}}</td>
+                {% if user.user_level == 9 }
+                <td>Admin</td>
+                {% else %}
+                <td>Normal</td>
+                {% endif %}
+                {% if request.session.user_level == 9 %}
+                <td><a href="/edit">Edit</a> <a href="/delete">Delete</a></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
