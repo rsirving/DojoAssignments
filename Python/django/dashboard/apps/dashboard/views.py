@@ -39,6 +39,9 @@ def newuser(request):
         return redirect('/')
 
 def edit(request, id):
+    context = {
+        "user": request.session['user']
+    }
     return render(request, 'edit.html')
 
 def show(request, id):
@@ -48,3 +51,21 @@ def show(request, id):
         "comments": Comments.objects.filter(message=Messages.objects.filter(posted_to_user=id))
     }
     return render('showuser.html', context)
+
+def message(request):
+    if request.method == "POST":
+        form = request.POST
+        message = Messages.objects.create(posted_to_user=form['posted_to_user'], user=request.session['user']['id'], message=form['message'])
+        message.save()
+    else:
+        return redirect('/')
+
+def comment(request):
+    if request.method == "POST":
+        form = request.POST
+        comment = Comments.objects.create(user=request.session['user'], message=form['message'], comment=form['message'])
+
+def delete(request, id):
+    if request.method == "POST":
+        if request.session['user']['admin']:
+            d = User.objects.get
