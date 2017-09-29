@@ -10,8 +10,21 @@
     border-radius: 50px;
 }
 #uptriangle {
-    width: 100px;
-    height: 100px;
-    background-color: blue;
-    
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid blue;
+}
+#pacman {
+    width: 0;
+    height: 0;
+    border-right: 55px solid transparent;
+    border-top: 55px solid blue;
+    border-left: 55px solid blue;
+    border-bottom: 55px solid blue;
+    border-top-left-radius: 55px;
+    border-top-right-radius: 55px;
+    border-bottom-right-radius: 55px;
+    border-bottom-left-radius: 55px;
 }
