@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Deck{
+            constructor(){
+                this.cards = [];
+                for (var i = 1; i <= 52; i++){
+                    if (i <= 13){
+                        this.cards.push("U+1F0A"+(i).toString(16).toUpperCase());
+                    }
+                    else if ((i > 13) & (i <= 26)){
+                        this.cards.push("U+1F0B"+(i%13).toString(16).toUpperCase());
+                    }
+                    else if ((i > 26) & (i <= 39)){
+                        this.cards.push("U+1F0C"+(i%13).toString(16).toUpperCase());
+                    }
+                    else {
+                        this.cards.push("U+1F0D"+(i%13).toString(16).toUpperCase());
+                    }
+                    console.log(this.cards)
+                }
+            }
+            shuffle(){
+                var m = this.cards.length, t, i;
+                while (m){
+                    i = Math.floor(Math.random()*m--);
+                    t = this.cards[m];
+                    this.cards[m] = this.cards[i];
+                    this.cards[i] = t;
+                }
+            }
+            deal(){
+                var card = this.cards[Math.floor(Math.random()*53)]
+                console.log(this.cards[Math.floor(Math.random()*53)])
+            }
+            reset(){
+                pass;
+            }
+
+        }
+        let deck1 = new Deck();
+        let number = 9%16;
+        console.log("U+1F0C"+ number.toString(16).toUpperCase())
+    </script>
+</body>
+</html>

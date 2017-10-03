@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="someID">Click</button>
+    <script>
+        function DojoQuery(id){
+            this.id = document.getElementById(id);
+            this.click = function(callBack){
+                this.id.addEventListener("click", callBack);
+            }
+            this.hover = function(functionOn, functionOff){
+                this.id.addEventListener("mouseenter", functionOn);
+                this.id.addEventListener("mouseleave", functionOff);
+            }
+        }
+        let $Dojo = function(id){
+            let answer = new DojoQuery(id);
+            return answer;
+        };
+        $Dojo('someID').click(function() { console.log("This works!")});
+    </script>
+</body>
+</html>

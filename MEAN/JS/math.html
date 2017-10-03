@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function zero_negativity(array){
+            for (let i = 0; i < array.length; i++){
+                if (array[i] < 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        function is_even(int){
+            if (int % 2 != 0){
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        function how_many_even(array){
+            let count = 0;
+            for (let i = 0; i < array.length; i++){
+                if (is_even(array[i])){
+                    count++;
+                }
+            }
+            return count;
+        }
+        function create_dummy_array(n){
+            let array = [];
+            for (let i = 0; i < n; i++){
+                array[i] = Math.floor(Math.random()*10);
+            }
+        }
+        function random_choice(array){
+            let choice = Math.floor(Math.random()*array.length);
+            choice = array[choice];
+            return choice;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function magic_multiply(x, y){
+            if (((x === 5) & (y === 2)) | ((x === 2) & (y === 5))){
+                x = 10;
+            }
+            if ((x === 0) & (y === 0)){
+                x = "All inputs 0";
+            }
+            if (x.constructor === Array){
+                for (var i = 0; i<x.length;i++){
+                    x[i] = x[i] * y;
+                }
+            }
+            if ((typeof x === 'String') | (typeof y === 'String')){
+                x = "Can not multiply by string.";
+            }
+            return x;
+        }
+        console.log(magic_multiply(2,5)) 
+        console.log(magic_multiply(0,0))
+        console.log(magic_multiply([1,2,3],2))
+
+    </script>
+</body>
+</html>

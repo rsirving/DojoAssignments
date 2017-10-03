@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Ninja{
+            constructor(name) {
+                this.name = name;
+                this.health = 100;
+                this.strength = 3;
+                this.speed = 3;
+            }
+            sayName(){
+                console.log("My ninja name is " + this.name + "!");
+            }
+            showStats(){
+                console.log("Name: " + this.name + ", Health: " + this.health + ", Strength: " + this.strength);
+            }
+            drinkSake(){
+                this.health += 10;
+            }
+        }
+
+        class Sensei extends Ninja{
+            constructor(name){
+                super(name);
+                this.health = 200;
+                this.strength = 10;
+                this.speed = 10;
+                this.wisdom = 10;
+            }
+            speakWisdom(){
+                this.drinkSake();
+                console.log("Liquor before beer, you're in the clear. Beer before liquor, never been sicker.");
+            }
+        }
+    </script>
+</body>
+</html>

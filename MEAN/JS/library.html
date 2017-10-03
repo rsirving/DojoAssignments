@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var _ = {
+            map: function(array, num) {
+                for (let i = 0; i < array.length; i++){
+                    array[i] *= num;
+                }
+                return array;
+            },
+            reduce: function(array) { 
+                var sum = 0;
+                for (let i = 0; i < array.length; i++){
+                    sum += array[i];
+                }
+                return sum;
+            },
+            find: function(array, doSomething) {   
+                for (var i = 0; i < array.length; i++){
+                    if (doSomething(array[i])){
+                        return array[i];
+                    }
+                }
+                return undefined;
+            },
+            filter: function(array, doSomething) { 
+                let answers = [];
+                for (var i = 0; i < array.length; i++){
+                    var input = [];
+                    input.push(array[i]);
+                    var result = find(input, doSomething);
+                    if (result != undefined){
+                        answers.push(result)
+                    }
+                }
+                return answers;
+            },
+            reject: function(array, doSomething) { 
+                let answers = [];
+                for (var i = 0; i < array.length; i++) {
+                    var input = [];
+                    input.push(array[i]);
+                    var result = find(input, doSomething);
+                    if (result === undefined){
+                        answers.push(array[i]);
+                    }
+                }
+                return answers;
+            }
+          }
+         // you just created a library with 5 methods!
+         
+    </script>
+</body>
+</html>

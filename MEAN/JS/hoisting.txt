@@ -1,0 +1,15 @@
+1. ReferenceError: undefined
+
+2. 'magnet'
+
+3.  'only okay'
+    'only okay'
+
+4.  'chicken'
+    'half-chicken'
+
+5.  'mean is not a function'
+
+6.  'undefined'
+
+7.  'dojo is not defined as a variable'

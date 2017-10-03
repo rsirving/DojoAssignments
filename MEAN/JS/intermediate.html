@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function starString(number, star="*"){ // Creates a string with a length of number of asterisks (by default).
+            let sky = '';
+            for (let i = 0; i < number; i++){
+                sky += star;
+            }
+            return sky;
+        }
+        function drawStars(array){ // Prints out a bunch of strings of asterisks. If the input is a string, prints out the first letter instead.
+            for (let i = 0; i < array.length; i++){
+                if (typeof array[i] === 'number') {
+                    console.log(starString(array[i]));
+                }
+                else if (typeof array[i] === 'string'){
+                    console.log(starString(array[i].length, array[i][0].toLowerCase()))
+                }
+            }
+        }
+    </script>
+</body>
+</html>
