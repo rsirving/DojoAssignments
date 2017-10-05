@@ -1,0 +1,13 @@
+<html>
+    <body>
+        <h1>Herd: </h1>
+        <% for (var x in elephants) { %>
+            <h2><%= elephants[x].name %> the elephant</h2>
+            <a href="/elephants/<%= elephants[x].id %>">Information</a>
+            <a href="/elephants/edit/<%= elephants[x].id %>">Edit</a>
+            <form action="/elephants/destroy/<%= elephants[x].id %>" method="POST"><input type="submit" value="Kill"></form>
+        <% } %>
+        <a href="/elephants/new">Add New Elephant</a>
+        <form action="/elephants/new" method="GET"><input type="submit" value="Add New Elephant"></form>
+    </body>
+</html>
