@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <form action="/message" method="POST">
+            Name: <input type="text" name="name">
+            Message: <input type="text" name="message">
+            <input type="submit" value="Post message">
+        </form>
+
+        <% for (var message of messages) { %>
+            <p>Name: <%= message.name %></p>
+            <p>Message: <%= message.message %></p>
+            <% for (var remark of message.remarks) { 
+                    <p>Name: <%= remark.name %></p>
+                    <p>Comment: <%= remark.text %></p>
+            <% } %>
+            <form action="/remark/<%=message._id%>" method="POST">
+                Name: <input type="text" name="name">
+                Comment: <input type="text" name="text">
+                <input type="submit" value="Post remark">
+            </form>
+        <% } %>
+    </body>
+</html>

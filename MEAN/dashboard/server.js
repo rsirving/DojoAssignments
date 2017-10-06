@@ -29,7 +29,7 @@ app.get('/', function(request, response){
 });
 
 app.post('/elephants', function(request, response){
-var elephant = new Elephant({name: request.body.name, age: request.body.age, gender: request.body.gender});
+    var elephant = new Elephant({name: request.body.name, age: request.body.age, gender: request.body.gender});
     elephant.save(function(errors){
         if (errors){
             console.log("Whoops.");
