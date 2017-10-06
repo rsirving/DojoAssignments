@@ -1,0 +1,10 @@
+<html>
+    <body>
+        <h2><%=elephant.name %> the elephant</h2>
+        <h3><%=elephant.age %> years old</h3>
+        <h3><%=elephant.gender %></h3><br>
+        <form action="/" method="GET"><input type="submit" value="Return to Herd"></form>
+        <form action="/elephants/edit/<%=elephant.id%>" method="GET"><input type="submit" value="Edit Information"></form>
+        <form action="/elephants/destroy/<%=elephant.id%>" method="POST"><input type="submit" value="Kill Elephant. You Monster."></form>
+    </body>
+</html>
