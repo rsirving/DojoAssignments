@@ -1,0 +1,10 @@
+var express = require('express');
+var mongoose = require('mongoose');
+var app = express();
+var path = require('path');
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended:true}));
+mongoose.connect('mongodb://localhost/password');
+mongoose.Promise = global.Promise;
+app.set('views', path.join(__dirname + './views'));
+app.set('view engine', 'ejs');
