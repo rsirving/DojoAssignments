@@ -21,8 +21,22 @@ var UserSchema = new mongoose.Schema({
             message: "Email validation failed."
         }
     },
-    first_name: {type: String, required: true},
-    last_name: {type: String, required: true},
+    first_name: {type: String, required: true, validate: {
+        validator: function(value){
+            if (value.length < 2){
+                return false;
+            }
+        }, 
+        message: "Name must be longer than 2 characters."}
+    },
+    last_name: {type: String, required: true, validate: {
+        validator: function(value){
+            if (value.length < 2){
+                return false;
+            }
+        }, 
+        message: "Name must be longer than 2 characters."}
+    },
     password: {type: String, required: true},
     birthday: {type: Date, required: true}
 });
