@@ -1,0 +1,7 @@
+<span *ngFor="let number of [1,2,3,4,5,6,7]; let idx = index">
+  <div [ngStyle]="{
+    'width': '75px',
+    'height': '75px',
+    'background-color': colors[order[idx]]
+  }"></div>
+</span>
