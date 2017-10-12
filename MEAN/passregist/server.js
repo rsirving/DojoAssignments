@@ -1,18 +1,26 @@
-var express = require('express');
-var mongoose = require('mongoose');
-var app = express();
-var path = require('path');
-var bodyParser = require('body-parser');
-var bcrypt = require('bcrypt-as-promised');
+const express = require('express');
+const mongoose = require('mongoose');
+const path = require('path');
+const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const app = express();
+var session = require('express-session');
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(session({
+    secret: "KlaatuBaradaNikto",
+    resave: false,
+    saveUninitialized: true
+}))
 mongoose.connect('mongodb://localhost/password');
 mongoose.Promise = global.Promise;
-app.set('views', path.join(__dirname + './views'));
+app.set('views', path.join(__dirname + '/views'));
 app.set('view engine', 'ejs');
 
 var UserSchema = new mongoose.Schema({
     email: {
         type: String, 
+        unique: true,
         required: true,
         validate: {
             validator: function(value){
@@ -37,30 +45,36 @@ var UserSchema = new mongoose.Schema({
         }, 
         message: "Name must be longer than 2 characters."}
     },
-    password: {type: String, required: true},
+    password: {type: String, required: true, validate: {
+        validator: function(value){
+            if (value.length < 8){
+                return false;
+            }
+        },
+        message: "Password must be longer than 8 characters."}
+    },
     birthday: {type: Date, required: true}
 });
 
-UserSchema.methods.encryptPassword = function(input){
-    bcrypt.hash(input, 10)
-    .then(function(hashed_password){
-        return hashed_password;
+UserSchema.methods.encryptPassword = function(input, done){
+    var user = this;
+    bcrypt.hash(input, saltRounds, function(errors, hash){
+        user.password = hash;
+        console.log(user);
+        console.log(hash);
+        done();
     })
 };
 
-UserSchema.methods.checkPassword = function(input){
-    bcrypt.compare(input, this.password)
-    .then(function(){
-        return true;
-    })
-    .catch(function(){
-        return false;
+UserSchema.methods.checkPassword = function(input, callback){
+    var hash = this.password;
+    bcrypt.compare(input, hash, function(errors, answer){
+        callback(answer);
     })
 }
 
 UserSchema.pre('save', function(done){
-    this.password = this.encryptPassword(this.password);
-    done();
+    this.encryptPassword(this.password, done);
 });
 
 mongoose.model('User', UserSchema);
@@ -73,21 +87,53 @@ app.get('/', function(request, response){
 })
 
 app.post('/register', function(request, response){
-    if (request.body.password === request.body.password-confirm){
-        if (User.find({email: request.body.email}).length === 0){
-            var user = new User({email: request.body.email, first_name: request.body.first_name, last_name: request.body.last_name, password: request.body.password, birthday: request.body.birthday});
-            request.session.userID = user.id;
-            user.save();
-        }
+    if (request.body.password === request.body.password_confirm){
+        User.findOne({email: request.body.email}, function(errors, user){
+            if (user === null){
+                var newUser = new User({email: request.body.email, first_name: request.body.first_name, last_name: request.body.last_name, password: request.body.password, birthday: request.body.birthday});
+                newUser.save()
+                request.session.userID = newUser._id;
+                console.log(newUser)
+                response.redirect('/');
+            } else {
+                console.log("Email is in use.");
+                response.redirect('/');
+            }
+        });
+    } else {
+        console.log("Passwords don't match.");
+        response.redirect('/');
     }
 })
 
 app.post('/login', function(request, response){
     User.findOne({email: request.body.email}, function(errors, user){
-        if (!errors){
-            if (user.checkPassword(request.body.password)){
-                
-            }
+        if (user != null){
+            user.checkPassword(request.body.password, function(answer){
+                if (answer){
+                    request.session.userID = user.id;
+                    console.log("You're logged in.");
+                    response.redirect('/');
+                } else {
+                    console.log(answer);
+                    console.log("You're not logged in.");
+                    response.redirect('/');
+                }
+            });
+        } else {
+            console.log("User not found.");
+            response.redirect('/');
         }
     })
+})
+
+app.get('/clear', function(request, response){
+    User.remove({}, function(err){
+        console.log("They're all dead, Dave.");
+        response.redirect('/');
+    })
+})
+
+app.listen(8000, function(){
+    console.log("It's on 8000.")
 })

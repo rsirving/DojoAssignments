@@ -1,0 +1,12 @@
+<h1>US Time Zone Display</h1>
+<button (click)="zone='PST'">PST</button>
+<button (click)="zone='MST'">MST</button>
+<button (click)="zone='CST'">CST</button>
+<button (click)="zone='EST'">EST</button>
+<button (click)="zone='EST'">Clear</button>
+
+<p *ngIf="zone == 'MST'">{{ MST | date:'shortTime'}}</p>
+<p *ngIf="zone == 'PST'">{{ PST | date:'shortTime'}}</p>
+<p *ngIf="zone == 'CST'">{{ CST | date:'shortTime'}}</p>
+<p *ngIf="zone == 'EST'">{{ EST | date:'shortTime'}}</p>
+{{time | json}}
