@@ -6,10 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  date = new Date();
+  estTime = new Date();
+  pstTime = new Date();
+  cstTime = new Date();
+  mstTime = new Date();
   zone = 'EST';
-  EST = this.date;
-  CST = this.date.setHours(this.date.getHours()-1);
-  MST = this.date.setHours(this.date.getHours()-2);
-  PST = this.date.setHours(this.date.getHours()-3);
+  EST = this.estTime;
+  CST = this.cstTime.setHours(this.cstTime.getHours()-1);
+  MST = this.mstTime.setHours(this.mstTime.getHours()-2);
+  PST = this.pstTime.setHours(this.pstTime.getHours()-3);
 }
