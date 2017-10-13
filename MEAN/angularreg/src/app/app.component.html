@@ -1,0 +1,39 @@
+<h1>Registration</h1>
+
+<div><p>Thank you for registering with us, {{user.firstname}}. We just sent you a confirmation email at <a href="/">{{user.email}}</a>, and we will send all mail to {{user.address}}, {{user.city}}. <br>Have a wonderful day!</p></div>
+
+<form (submit)="onSubmit()">
+  <label for="first_name">First Name:</label>
+  <input [(ngModel)]="user.firstname" #firstname="ngModel" type="text" id="first" name="firstname" required>
+  <span *ngIf="firstname.invalid && firstname.touched">First name is required.</span>
+  <br>
+  <label for="last_name">Last Name:</label>
+  <input [(ngModel)]="user.lastname" #lastname="ngModel" type="text" name="lastname" required>
+  <span *ngIf="lastname.invalid && lastname.touched">Last name is required.</span>
+  <br>
+  <label for="email">Email:</label>
+  <input [(ngModel)]="user.email" #email="ngModel" type="email" name="email" email="true" required>
+  <span *ngIf="email.invalid && email.touched">Email must be valid.</span>
+  <br>
+  <label for="password">Password:</label>
+  <input [(ngModel)]="user.password" #password="ngModel" type="password" name="password" required minlength="16">
+  <span *ngIf="password.invalid && password.touched">Password must be 16 characters or longer.</span>
+  <br>
+  <label for="passwordconfirm">Confirm Password:</label>
+  <input [(ngModel)]="user.passwordconfirm" #passwordconfirm="ngModel" type="password" name="passwordconfirm" required>
+  <span *ngIf="passwordconfirm.touched"></span>
+  <br>
+  <label for="address">Address:</label>
+  <input [(ngModel)]="user.address" #address="ngModel" type="text" name="address" required>
+  <br>
+  <label for="city">City:</label>
+  <input [(ngModel)]="user.city" #city="ngModel" type="text" name="city" required>
+  <br>
+  <label for="lucky">Are you feeling lucky?</label>
+  <input [(ngModel)]="user.lucky" type="radio" name="lucky" value="true" checked="true">
+  <input [(ngModel)]="user.lucky" type="radio" name="lucky" value="false">
+  <br>
+  <input type="submit" value="Register">
+</form>
+
+{{ user | json }}

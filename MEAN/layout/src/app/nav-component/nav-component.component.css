@@ -1,0 +1,16 @@
+div {
+    background-color: blue;
+    display: inline-block;
+    width: 20%;
+    padding-bottom: 200px;
+    vertical-align: top;
+}
+button {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px 50px;
+}
