@@ -6,28 +6,38 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  validation = false;
+  problem = false;
+  userid = -1;
   user = {
     email: "",
     firstname: "",
     lastname: "",
     password: "",
+    passwordconfirm: "",
     address: "",
     city: "",
     lucky: ""
   };
   users = [];
   onSubmit(){
-    console.log(this.user);
-    this.users.push(this.user);
-    console.log(this.users);
-    this.user = {
-      email: "",
-      firstname: "",
-      lastname: "",
-      password: "",
-      address: "",
-      city: "",
-      lucky: ""
-    };
+    if (this.user.password === this.user.passwordconfirm){
+      this.users.push(this.user);
+      this.userid += 1;
+      this.validation = true;
+      this.problem = false;
+      this.user = {
+        email: "",
+        firstname: "",
+        lastname: "",
+        password: "",
+        passwordconfirm: "",
+        address: "",
+        city: "",
+        lucky: ""
+      };
+    } else {
+      this.problem = true;
+    }
   };
 }

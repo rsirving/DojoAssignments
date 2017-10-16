@@ -1,10 +1,11 @@
 <h1>Registration</h1>
 
-<div><p>Thank you for registering with us, {{user.firstname}}. We just sent you a confirmation email at <a href="/">{{user.email}}</a>, and we will send all mail to {{user.address}}, {{user.city}}. <br>Have a wonderful day!</p></div>
+<div *ngIf="validation"><p>Thank you for registering with us, {{users[userid].firstname}}. We just sent you a confirmation email at <a href="/">{{users[userid].email}}</a>, and we will send all mail to {{users[userid].address}}, {{users[userid].city}}. <br>Have a wonderful day!</p></div>
+<div *ngIf="problem">Password and confirmation do not match.</div>
 
-<form (submit)="onSubmit()">
+<form #formCtrl="ngForm" (submit)="onSubmit()">
   <label for="first_name">First Name:</label>
-  <input [(ngModel)]="user.firstname" #firstname="ngModel" type="text" id="first" name="firstname" required>
+  <input [(ngModel)]="user.firstname" #firstname="ngModel" type="text" name="firstname" required>
   <span *ngIf="firstname.invalid && firstname.touched">First name is required.</span>
   <br>
   <label for="last_name">Last Name:</label>
@@ -21,19 +22,23 @@
   <br>
   <label for="passwordconfirm">Confirm Password:</label>
   <input [(ngModel)]="user.passwordconfirm" #passwordconfirm="ngModel" type="password" name="passwordconfirm" required>
-  <span *ngIf="passwordconfirm.touched"></span>
+  <span *ngIf="passwordconfirm.touched && passwordconfirm.invalid">Please confirm password.</span>
   <br>
   <label for="address">Address:</label>
   <input [(ngModel)]="user.address" #address="ngModel" type="text" name="address" required>
+  <span *ngIf="address.invalid && address.touched">Address is required.</span>
   <br>
   <label for="city">City:</label>
   <input [(ngModel)]="user.city" #city="ngModel" type="text" name="city" required>
   <br>
   <label for="lucky">Are you feeling lucky?</label>
-  <input [(ngModel)]="user.lucky" type="radio" name="lucky" value="true" checked="true">
-  <input [(ngModel)]="user.lucky" type="radio" name="lucky" value="false">
+  <label for="yes">Yes</label>
+  <input [(ngModel)]="user.lucky" type="radio" id="yes" name="lucky" value="true" required>
+  <label for="no">No</label>
+  <input [(ngModel)]="user.lucky" type="radio" id="no" name="lucky" value="false">
   <br>
-  <input type="submit" value="Register">
+  <input type="submit" value="Register" [disabled]="!formCtrl.form.valid">
 </form>
 
 {{ user | json }}
+{{ users | json }}
