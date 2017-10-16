@@ -1,0 +1,7 @@
+<div class="box">
+  <p>{{ name }}</p>
+  <p>Power Level: {{ level }}</p>
+  <p *ngIf="level > 9000 && level <= 20000">Over 9000</p>
+  <p *ngIf="level > 20000 && level < 50000">Superlative</p>
+  <p *ngIf="level === 50000">The One</p>
+</div>

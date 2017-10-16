@@ -6,10 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  fighter = {
-    level: ""
-  };
+  input = {
+    level: 0
+  }
+  output = {
+    level: 0
+  }
   onSubmit(){
-    this.fighter.level = this.level
+    this.output.level = this.input.level;
   }
 }

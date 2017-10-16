@@ -1,10 +1,10 @@
-<form>
-  <input [(ngModel)]="level.power" type="number" min="1" max="100" name="powerlevel">
+<form (submit)="onSubmit()">
+  <input type="number" name="level" min="1" max="100">
+  <input type="submit" value="calculate power">
 </form>
-
-<app-humanlevel [level]=level.power></app-humanlevel>
-<app-saiyanlevel [level]=level.power></app-saiyanlevel>
-<app-supersaiyanlevel [level]=level.power></app-supersaiyanlevel>
-<app-sstwolevel [level]=level.power></app-sstwolevel>
-<app-ssthreelevel [level]=level.power></app-ssthreelevel>
-<app-ssfourlevel [level]=level.power></app-ssfourlevel>
+<app-humanlevel></app-humanlevel>
+<app-saiyanlevel></app-saiyanlevel>
+<app-supersaiyanlevel></app-supersaiyanlevel>
+<app-sstwolevel></app-sstwolevel>
+<app-ssthreelevel></app-ssthreelevel>
+<app-ssfourlevel></app-ssfourlevel>

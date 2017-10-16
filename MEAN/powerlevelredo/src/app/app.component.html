@@ -1,0 +1,12 @@
+<form (submit)="onSubmit()">
+  <label for="level">Power Level: </label>
+  <input type="number" name="level" min="1" max="100" [(ngModel)]="input.level" #level="ngModel">
+  <input type="submit" value="Calculate Power Level">
+</form>
+
+<app-fightertype [level]='output.level'></app-fightertype>
+<app-fightertype [level]='output.level * 10'></app-fightertype>
+<app-fightertype [level]='output.level * 90'></app-fightertype>
+<app-fightertype [level]='output.level * 150'></app-fightertype>
+<app-fightertype [level]='output.level * 250'></app-fightertype>
+<app-fightertype [level]='output.level * 500'></app-fightertype>
