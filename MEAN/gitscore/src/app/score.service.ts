@@ -23,7 +23,6 @@ export class ScoreService {
   }
 
   sendScore(){
-    console.log(this.score);
     return this.score;
   }
 

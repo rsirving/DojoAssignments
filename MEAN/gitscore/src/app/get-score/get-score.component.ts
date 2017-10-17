@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GetScoreComponent implements OnInit {
   @Input() score;
-
+  
   constructor() { }
 
   ngOnInit() {
