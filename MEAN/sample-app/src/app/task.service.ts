@@ -6,10 +6,13 @@ export class TaskService {
 
   tasks = ["drink coffee or tea", "build a web app"];
 
-  constructor() { }
+  constructor(private _http: Http) { }
 
   retrieveTasks(){
-    return this.tasks;
+    this._http.get('http(s)://59e6082df99ad90012268304.mockapi.io/testing').subscribe(
+      (response) => { console.log(response.json()); },
+      (error) => { console.log(error); }
+    )
   }
 
   createTask(task){

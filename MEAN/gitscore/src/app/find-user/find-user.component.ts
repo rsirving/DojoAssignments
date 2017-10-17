@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ScoreService } from './../score.service';
 
 @Component({
   selector: 'app-find-user',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./find-user.component.css']
 })
 export class FindUserComponent implements OnInit {
-
-  constructor() { }
+  @Output() aScoreEventEmitter = new EventEmitter();
+  input = {
+    username: ""
+  }
+  constructor(private _scoreService: ScoreService) { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    this._scoreService.getScore(this.input.username, () => { this.aScoreEventEmitter.emit() });
   }
 
 }

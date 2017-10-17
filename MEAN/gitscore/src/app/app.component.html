@@ -1,2 +1,2 @@
-<app-find-user></app-find-user>
-<app-get-score></app-get-score>
+<app-find-user (aScoreEventEmitter)="retrieveScore()"></app-find-user>
+<app-get-score [score]='score'></app-get-score>

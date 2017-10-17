@@ -20,7 +20,7 @@ import { GetScoreComponent } from './get-score/get-score.component';
     HttpModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ScoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

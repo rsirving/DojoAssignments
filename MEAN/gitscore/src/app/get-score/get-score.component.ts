@@ -1,3 +1,4 @@
+import { ScoreService } from './../score.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -6,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./get-score.component.css']
 })
 export class GetScoreComponent implements OnInit {
+  @Input() score;
 
   constructor() { }
 

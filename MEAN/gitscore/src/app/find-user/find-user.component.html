@@ -1,4 +1,4 @@
 <form (submit)='onSubmit()'>
   Github Username: <input type="text" name="username" [(ngModel)]="input.username" #username="ngModel" required>
-  <input type="submit" value="Submit" [disabled]="!username.valid">
+  <input type="submit" value="Calculate My Github Score" [disabled]="!username.valid">
 </form>

@@ -4,21 +4,27 @@ import { Http } from '@angular/http';
 @Injectable()
 export class ScoreService {
 
-  followers = 0;
-  public_repos = 0;
+  score = undefined;
 
   constructor(private _http: Http) { }
 
-  getScore(username) {
+  getScore(username, callback) {
     this._http.get('https://api.github.com/users/'+username).subscribe(
-      (response) => { 
-        this.followers = response.json().followers;
-        this.public_repos = response.json().followers;
+      (response) => {
+        let data = response.json();
+        this.score = data.followers + data.public_repos;
+        callback();
       },
       (error) => {
-        console.log("no");
+        this.score = -1;
+        callback();
       }
     )
+  }
+
+  sendScore(){
+    console.log(this.score);
+    return this.score;
   }
 
 }
