@@ -7,6 +7,5 @@ import { TaskService } from './task.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  weather = undefined;
   constructor (private _taskService: TaskService) { }
 }

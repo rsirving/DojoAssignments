@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TaskService } from './task.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +6,5 @@ import { TaskService } from './task.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  weather = undefined;
-  constructor (private _taskService: TaskService) { }
+  title = 'app';
 }

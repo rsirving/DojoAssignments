@@ -1,0 +1,7 @@
+<form (submit)="onSubmit()" #formCtrl="ngForm">
+  <input type="text" name="title" [(ngModel)]="product.title" #title="ngModel" minlength="4" required>
+  <input type="number" name="price" [(ngModel)]="product.price" #price="ngModel" required>
+  <input type="url" name="image" [(ngModel)]="product.image" #image="ngModel">
+  <input type="submit" value="CREATE" [disabled]="!formCtrl.form.valid">
+</form>
+{{ ngForm | json }}

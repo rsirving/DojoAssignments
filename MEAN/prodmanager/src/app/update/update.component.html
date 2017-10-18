@@ -1,0 +1,6 @@
+<form (submit)="update()" #formCtrl="ngForm">
+  <input type="text" name="title" [(ngModel)]="product.title" #title="ngModel" required minlength="4">
+  <input type="number" name="price" [(ngModel)]="product.price" #price="ngModel" required>
+  <input type="url" name="image" [(ngModel)]="product.image" #image="ngModel">
+  <input type="submit" value="UPDATE" [disabled]="!formCtrl.form.valid">
+</form>
