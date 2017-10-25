@@ -1,0 +1,3 @@
+[submodule "mean/mean-anonnotes"]
+	path = mean/mean-anonnotes
+	url = ./mean/mean-anonnotes
