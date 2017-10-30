@@ -1,4 +1,5 @@
 *.pyc
 *.zip
+*.class
 Python/myEnvironments
 node_modules/
