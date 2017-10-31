@@ -2,11 +2,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Arrays;
 public class PuzzleJava {
-    public static void main(String[] args) {
-
-    }
     Random rand = new Random();
-    public int[] puzzleOne() {
+    public static void main(String[] args) { }
+    public ArrayList<Integer> puzzleOne() {
         int[] array1 = {3,5,1,2,7,9,8,13,25,32};
         int sum = 0;
         ArrayList<Integer> array2 = new ArrayList<Integer>();
@@ -19,8 +17,8 @@ public class PuzzleJava {
         System.out.println(sum);
         return array2;
     }
-
-    public String[] puzzleTwo() {
+    
+    public ArrayList<String> puzzleTwo() {
         String[] array1 = {"Nancy", "Jinichi", "Fujibayashi", "Momochi", "Ishikawa"};
         ArrayList<String> array2 = new ArrayList<String>();
         for (String name : array1) {
@@ -38,17 +36,20 @@ public class PuzzleJava {
         return array2;
     }
 
-    public char[] puzzleThree() {
+    public void puzzleThree() {
         char[] array = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
         for (int i = 0; i < array.length; i++){
             int shuffle = rand.nextInt(array.length-1);
-            String temp = array[shuffle];
+            char temp = array[shuffle];
             array[shuffle] = array[i];
             array[i] = temp;           
         }
         System.out.println(array[25]);
+        if ("aeiou".indexOf(array[25]) != -1){
+            System.out.println("It's a vowel!");
+        }
         System.out.println(array[0]);
-        if (array[0] == {'a','e','i','o','u'}){
+        if ("aeiou".indexOf(array[0]) != -1){
             System.out.println("It's a vowel!");
         }
     }
@@ -73,10 +74,12 @@ public class PuzzleJava {
         System.out.println(array.toString());
         System.out.println("Max: " + array[array.length-1]);
         System.out.println("Min: " + array[0]);
+        return array;
     }
 
     public String puzzleSix() {
         char[] output;
+        output = new char[5];
         String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String lower = upper.toLowerCase();
         String digits = "0123456789";
@@ -85,7 +88,8 @@ public class PuzzleJava {
         for (int i = 0; i < 5; i++) {
             output[i] = symbols[rand.nextInt(symbols.length-1)];
         }
-        return String(output);
+        String newOutput = String.valueOf(output);
+        return newOutput;
     }
 
     public String[] puzzleSeven(){
