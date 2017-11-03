@@ -3,3 +3,4 @@
 *.class
 Python/myEnvironments
 node_modules/
+src/test/java
