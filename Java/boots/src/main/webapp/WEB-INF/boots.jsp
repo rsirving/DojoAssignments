@@ -21,7 +21,7 @@
 			<td><c:out value="${boot.description}"/></td>
 			<td><c:out value="${boot.language}"/></td>
 			<td><c:out value="${boot.numberOfPages}"/></td>
-			<td><a href="/books/delete/${boot.id}">Delete</a></td>			
+			<td><a href="/books/delete/${loop.id}">Delete</a></td>			
 			</tr>
 		</c:forEach>
 		</table>

@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.*;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,17 +21,23 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
-
+@Entity
 public class Language{
+	@Id
+    @GeneratedValue
+    private Long id;
 
+	@Column
 	@Size(min=2, max=20)
 	@NotEmpty
 	private String name;
-
+	
+	@Column
 	@Size(min=2, max=20)
 	@NotEmpty
 	private String creator;
 
+	@Column
 	@NotEmpty
 	private String version;
 	
@@ -45,6 +51,9 @@ public class Language{
 		this.version = version;		
 	}
 
+	public Long getId(){
+		return id;
+	}
 	public String getName(){
 		return name;
 	}
@@ -53,6 +62,9 @@ public class Language{
 	}
 	public String getVersion(){
 		return version;
+	}
+	public void setId(Long id){
+		this.id = id;
 	}
 	public void setName(String name){
 		this.name = name;

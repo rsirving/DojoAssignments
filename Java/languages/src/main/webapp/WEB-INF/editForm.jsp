@@ -14,7 +14,8 @@
 	</head>
 
 	<body>
-		<form:form method="POST" action="/languages/edit/${index}" modelAttribute="language">
+		<form:form method="POST" action="/languages/edit/${language.id}" modelAttribute="language">
+			<form:hidden path="id"/>
 			<form:label path="name">Name:
 				<form:errors path="name"/>
 				<form:input path="name"/>

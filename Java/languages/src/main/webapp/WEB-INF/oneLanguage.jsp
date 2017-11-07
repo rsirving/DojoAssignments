@@ -17,7 +17,7 @@
 		${language.name}
 		${language.creator}
 		${language.version}
-		<a href="/languages/edit/${index}">Edit</a>
-		<a href="/languages/delete/${index}">Delete</a>
+		<a href="/languages/edit/${language.id}">Edit</a>
+		<a href="/languages/delete/${language.id}">Delete</a>
 	</body>
 </html>

@@ -43,17 +43,10 @@ public class Home{
 		return "index";
 	}
 
-	@RequestMapping("/languages/{index}")
-	public String oneLanguage(Model model, @PathVariable("index") int index){
-		System.out.println("Hello");
-		Language language = languageService.findLanguage(index);
-		if (language != null){
-			model.addAttribute("language", language);
-			model.addAttribute("index", index);
-			return "oneLanguage";
-		} else {
-			return "redirect:/languages";
-		}
+	@RequestMapping("/languages/{id}")
+	public String oneLanguage(Model model, @PathVariable("id") Long id){
+		model.addAttribute("language", languageService.findLanguage(id));
+		return "oneLanguage";
 	}
 
 	@PostMapping("/languages/new")
@@ -66,9 +59,9 @@ public class Home{
 		}
 	}
 
-	@RequestMapping("/languages/edit/{index}")
-	public String editLanguage(@PathVariable("index") int index, Model model) {
-		Language language = languageService.findLanguage(index);
+	@RequestMapping("/languages/edit/{id}")
+	public String editLanguage(@PathVariable("id") Long id, Model model) {
+		Language language = languageService.findLanguage(id);
 		if (language != null){
 			model.addAttribute("language", language);
 			return "editForm";
@@ -77,19 +70,19 @@ public class Home{
 		}
 	}
 
-	@PostMapping("/languages/edit/{index}")
-	public String updateLanguage(@PathVariable("index") int index, @Valid @ModelAttribute("language") Language language, BindingResult result){
+	@PostMapping("/languages/edit/{id}")
+	public String updateLanguage(@PathVariable("id") Long id, @Valid @ModelAttribute("language") Language language, BindingResult result){
 		if (result.hasErrors()){
 			return "editForm";
 		} else {
-			languageService.updateLanguage(index, language);			
-			return "redirect:/languages/{index}";
+			languageService.updateLanguage(language);			
+			return "redirect:/languages/{id}";
 		}
 	}
 
-	@RequestMapping(value="/languages/delete/{index}")
-	public String destroyLanguage(@PathVariable("index") int index){
-		languageService.destroyLanguage(index);
+	@RequestMapping(value="/languages/delete/{id}")
+	public String destroyLanguage(@PathVariable("id") Long id){
+		languageService.destroyLanguage(id);
 		return "redirect:/languages";
 	}
 }
