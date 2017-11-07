@@ -46,9 +46,7 @@ public class BootService {
         }
 	}
 
-	public void destroyBoot(int id) {
-        if (id < boots.size()){
-            boots.remove(id);
-        }
+	public void destroyBoot(Long id) {
+        bootRepository.delete(id);
     }
 }

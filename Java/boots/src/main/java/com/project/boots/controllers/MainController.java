@@ -1,6 +1,6 @@
 package com.project.boots.controllers;
 import com.project.boots.models.Boot;
-import java.util.ArrayList;
+import java.util.List;
 import com.project.boots.services.BootService;
 
 import java.security.Principal;
@@ -33,7 +33,7 @@ public class MainController {
     }
     @RequestMapping("/boots")
     public String boots(Model model) {
-        ArrayList<Boot> boots = bootService.allBoots();
+        List<Boot> boots = bootService.allBoots();
         model.addAttribute("boots", boots);
         return "boots";
     }
@@ -76,7 +76,7 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="/boots/delete/{id}")
-    public String destroyBoot(@PathVariable("id") int id) {
+    public String destroyBoot(@PathVariable("id") Long id) {
         bootService.destroyBoot(id);
         return "redirect:/boots";
     }
