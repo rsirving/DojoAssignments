@@ -14,6 +14,25 @@
 	</head>
 
 	<body>
-		<div>Its your turn to work.</div>
+		<form method="POST" action="/search">
+			<input id="searchText" type="text" placeholder="Artist Name" name="search">
+			<input type="submit" value="Search">
+		</form>
+		<p>Songs by artist: ${songs[0].artist}</p>
+		<table>
+			<thead>
+				<th>Title</th>
+				<th>Artist</th>
+				<th>Rating</th>
+				<th>Actions</th>
+			</thead>
+			<c:forEach items="${songs}" var="song">
+				<tr>
+					<td><a href="/songs/${song.id}">${song.title}</a></td>
+					<td>${song.rating}</td>
+					<td><a href="/songs/edit/${song.id}">Edit</a> <a href="/songs/delete/${song.id}">Delete</a></td>
+				</tr>
+			</c:forEach>
+		</table>
 	</body>
 </html>

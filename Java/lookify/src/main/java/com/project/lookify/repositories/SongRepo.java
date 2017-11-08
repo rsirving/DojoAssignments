@@ -14,4 +14,6 @@ public interface SongRepo extends CrudRepository<Song,Long>{
 	// Example:
 	// public YourModelHere findByName(String name);
 	List<Song> findAll();
+	List<Song> findByArtist(String search);
+	List<Song> findTop10ByOrderByRatingDesc();
 }

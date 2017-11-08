@@ -14,7 +14,20 @@
 	</head>
 
 	<body>
+		<a href="/songs/new">New Song</a>
+		<a href="/search/topTen">Top Ten</a>
+		<form method="POST" action="/search">
+			<input id="searchText" type="text" placeholder="Artist Name" name="search">
+			<input type="submit" value="Search">
+		</form>
+
 		<table>
+			<thead>
+				<th>Title</th>
+				<th>Artist</th>
+				<th>Rating</th>
+				<th>Actions</th>
+			</thead>
 			<c:forEach items="${songs}" var="song">
 				<tr>
 					<td><a href="/songs/${song.id}">${song.title}</a></td>

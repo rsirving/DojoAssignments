@@ -14,6 +14,21 @@
 	</head>
 
 	<body>
-		<div>Its your turn to work.</div>
+		<form:form method="POST" action="/songs/edit/${song.id}" modelAttribute="song">
+			<form:hidden path="id"/>
+			<form:label path="title">Title:
+				<form:errors path="title"/>
+				<form:input path="title"/>
+			</form:label>
+			<form:label path="artist">Artist:
+				<form:errors path="artist"/>
+				<form:input path="artist"/>
+			</form:label>
+			<form:label path="rating">Rating:
+				<form:errors path="rating"/>
+				<form:input type="number" path="rating" min="0" max="10"/>
+			</form:label>
+			<input type="submit" value="Submit">
+		</form:form>
 	</body>
 </html>

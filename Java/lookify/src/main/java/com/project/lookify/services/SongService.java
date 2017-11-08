@@ -35,4 +35,12 @@ public class SongService {
 	public void destroySong(Long id){
 		songRepo.delete(id);
 	}
+
+	public List<Song> searchByArtist(String search){
+		return songRepo.findByArtist(search);
+	}
+
+	public List<Song> searchTopTen(){
+		return songRepo.findTop10ByOrderByRatingDesc();
+	}
 }

@@ -9,15 +9,24 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Details</title>
+		<title>Index</title>
 		<!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
 	</head>
 
 	<body>
-		<a href="/dashboard">Dashboard</a>
-		<p>Title: ${song.title}</p>
-		<p>Artist: ${song.artist}</p>
-		<p>Rating: ${song.rating}</p>
-		<a href="/songs/delete/${song.id}">Delete</a>
+		<table>
+			<thead>
+				<th>Rating</th>
+				<th>Title</th>
+				<th>Artist</th>
+			</thead>
+			<c:forEach items="${songs}" var="song">
+				<tr>
+					<td>${song.rating}</td>
+					<td><a href="/songs/${song.id}">${song.title}</a></td>
+					<td>${song.artist}</td>
+				</tr>
+			</c:forEach>
+		</table>
 	</body>
 </html>

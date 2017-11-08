@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -36,13 +37,13 @@ public class Home{
 	}
 
 	@RequestMapping("/dashboard")
-	public String dashboard(Model model){
+	public String dashboard(Model model, @ModelAttribute("search") String search){
 		model.addAttribute("songs", songService.allSongs());
 		return "dashboard";
 	}
 
 	@RequestMapping("/songs/new")
-	public String newSong(){
+	public String newSong(@ModelAttribute("song") Song song){
 		return "newsong";
 	}
 
@@ -84,7 +85,7 @@ public class Home{
 			return "editsong";
 		} else {
 			songService.updateSong(song);
-			return "redirect:/songs/id";
+			return "redirect:/songs/{id}";
 		}
 	}
 
@@ -93,4 +94,27 @@ public class Home{
 		songService.destroySong(id);
 		return "redirect:/dashboard";
 	}
+
+	@RequestMapping(value="/search", method=RequestMethod.POST)
+	public String search(@RequestParam("search") String search) {
+		return "redirect:/search/".concat(search);
+	}
+
+	@RequestMapping("/search/topTen")
+	public String topTen(Model model){
+		model.addAttribute("songs", songService.searchTopTen());
+		return "topten";
+	}
+
+	@RequestMapping("/search/{search}")
+	public String showSearch(@PathVariable("search") String search, Model model){
+		List<Song> songs = songService.searchByArtist(search);
+		if(songs.isEmpty()){
+			return "redirect:/dashboard";
+		} else {
+			model.addAttribute("songs", songs);
+			return "search";
+		}
+	}
+	
 }
