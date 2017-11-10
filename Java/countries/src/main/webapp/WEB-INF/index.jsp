@@ -14,20 +14,6 @@
 	</head>
 
 	<body>
-		<p>${person.firstName} ${person.lastName}</p>
-		<table>
-			<tr>
-				<td>License Number:</td>
-				<td>${person.license.number}</td>
-			</tr>
-			<tr>
-				<td>State:</td>
-				<td>${person.license.state}</td>
-			</tr>
-			<tr>
-				<td>Expiration Date:</td>
-				<td>${person.license.expirationDate}</td>
-			</tr>
-		</table>
+		<div>Its your turn to work.</div>
 	</body>
 </html>

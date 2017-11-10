@@ -18,6 +18,7 @@ public class License {
     @GeneratedValue
 	private Long id;
 	
+	private String number;
     private String expirationDate;
     private String state;
     @Column(updatable=false)
@@ -72,6 +73,12 @@ public class License {
 	}
 	public void setPerson(Person person){
 		this.person = person;
+	}
+	public String getNumber() {
+		return number;
+	}
+	public void setNumber(String number) {
+		this.number = number;
 	}
 	
 	// Setters and Getters go here

@@ -14,8 +14,12 @@ public class LicenseService {
 		this.licenseRepo = licenseRepo;
 	}
 
-	public void newLicense(License license){
-		licenseRepo.save(license);
+	public License newLicense(License license){
+		Long personId = license.getPerson().getId();
+		String licNumber = String.format("%06d", personId);
+		license.setNumber(licNumber);
+		License lic = licenseRepo.save(license);
+		return lic;
 	}
 	
 	// Crud methods to act on services go here.

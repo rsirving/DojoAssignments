@@ -67,11 +67,13 @@ public class Main{
 
 	@PostMapping("/licenses/new")
 	public String submitNewLicense(@Valid @ModelAttribute("license") License license, BindingResult result){
+		System.out.println("Hello");
 		if (result.hasErrors()){
-			return "redirect:/";
+			return "redirect:/licenses/new";
 		} else {
-			licenseService.newLicense(license);
-			return "redirect:/";
+			License lic = licenseService.newLicense(license);
+			String personId = Long.toString(lic.getPerson().getId());
+			return "redirect:/persons/".concat(personId);
 		}
 	}
 }
