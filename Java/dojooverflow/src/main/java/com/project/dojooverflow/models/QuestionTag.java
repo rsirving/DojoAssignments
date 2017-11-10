@@ -3,6 +3,7 @@ package com.project.dojooverflow.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Table;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,10 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Transient;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Type;
@@ -22,15 +23,21 @@ import org.hibernate.validator.constraints.Email;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-public class Tag{
+@Table(name="questions_tags")
+public class QuestionTag{
 	@Id
 	@GeneratedValue
 	private long id;
 
-	@NotNull
-	private String name;
-
 	// Member variables and annotations go here.
+
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="question_id")
+	private Question question;
+
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="tag_id")
+	private Tag tag;
 	
 	@DateTimeFormat(pattern="MM:dd:yyyy HH:mm:ss")
 	private Date createdAt;
@@ -42,14 +49,6 @@ public class Tag{
 	public void onCreate(){this.createdAt = new Date();}
 	@PreUpdate
 	public void onUpdate(){this.updatedAt = new Date();}
-
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(
-		name="questions_tags",
-		joinColumns = @JoinColumn(name="tag_id"),
-		inverseJoinColumns = @JoinColumn(name="question_id")
-	)
-	private List<Question> questions;
 	
 	public long getId() {
 		return id;
@@ -72,23 +71,11 @@ public class Tag{
 	
 	// Setters and Getters go here
 
-	public Tag(){}
+	public QuestionTag(){}
 	
-	public Tag(String name){
-		this.name = name;
+	public QuestionTag(){
+
 		this.createdAt = new Date();
 		this.updatedAt = new Date();
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public List<Question> getQuestions(){
-		return questions;
-	}
-	public void setQuestions(List<Question> questions){
-		this.questions = questions;
 	}
 }

@@ -15,6 +15,20 @@
 
 	<body>
 		<h2><c:out value="${question.body}"/></h2>
-		<h3>Tags: </h3>
+		<h3>Tags:</h3>
+		<c:forEach items="${question.tags}" var="tag">
+			<p>${tag.name}</p>
+		</c:forEach>
+
+		<form method="post" action="/answer/new/${question.id}">
+			<label name="body">Add Answer:
+				<textarea name="body" id="body" cols="30" rows="5"></textarea>
+			</label><br>
+			<input type="submit" value="Submit">
+		</form>
+		<h3>Answers:</h3>
+		<c:forEach items="${answers}" var="answer">
+			<p>${answer.body}</p>
+		</c:forEach>
 	</body>
 </html>

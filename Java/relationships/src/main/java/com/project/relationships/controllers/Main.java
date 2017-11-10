@@ -48,10 +48,30 @@ public class Main{
 			return "redirect:/";
 		}
 	}
+	@RequestMapping("/persons/{id}")
+	public String profileShow(Model model, @RequestParam ("id") Long id){
+		Person person = personService.onePerson(id);
+		if (person != null){
+			model.addAttribute("person", person);
+			return "profile";
+		} else {
+			return "redirect:/";
+		}
+	}
 
 	@RequestMapping("/licenses/new")
 	public String newLicenseForm(@ModelAttribute("license") License license, Model model){
 		model.addAttribute("persons", personService.allPersons());
 		return "newlicense";
+	}
+
+	@PostMapping("/licenses/new")
+	public String submitNewLicense(@Valid @ModelAttribute("license") License license, BindingResult result){
+		if (result.hasErrors()){
+			return "redirect:/";
+		} else {
+			licenseService.newLicense(license);
+			return "redirect:/";
+		}
 	}
 }

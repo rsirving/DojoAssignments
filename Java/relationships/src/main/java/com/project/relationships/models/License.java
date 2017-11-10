@@ -16,9 +16,9 @@ public class License {
     
     @Id
     @GeneratedValue
-    private Long id;
-    private String number;
-    private Date expirationDate;
+	private Long id;
+	
+    private String expirationDate;
     private String state;
     @Column(updatable=false)
     private Date createdAt;
@@ -28,8 +28,7 @@ public class License {
     private Person person;
 
 	public License() { }
-	public License(String number, Date expirationDate, String state){
-		this.number = number;
+	public License(String number, String expirationDate, String state){
 		this.expirationDate = expirationDate;
 		this.state = state;
 	}
@@ -38,10 +37,10 @@ public class License {
 	@PreUpdate
 	public void onUpdate(){this.updatedAt = new Date();}
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Date getCreatedAt() {
@@ -56,16 +55,10 @@ public class License {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	public String getNumber(){
-		return number;
-	}
-	public void setNumber(String number){
-		this.number = number;
-	}
-	public Date getExpirationDate(){
+	public String getExpirationDate(){
 		return expirationDate;
 	}
-	public void setExpirationDate(Date expirationDate){
+	public void setExpirationDate(String expirationDate){
 		this.expirationDate = expirationDate;
 	}
 	public String getState(){

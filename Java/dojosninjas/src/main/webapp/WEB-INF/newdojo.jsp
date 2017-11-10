@@ -14,18 +14,12 @@
 	</head>
 
 	<body>
-		<h1>What is your question?</h1>
-		<form method="POST" action="/questions/new">
-			<label name="body">Question:
-				<p style="color: red">${errors1.errors1} ${errors4.errors4}</p>
-				<textarea name="body" id="body" rows="5" cols="30"></textarea>
-			</label>
-			<br>
-			<label name="tag">Add Tags:
-				<p style="color: red">${errors2.errors2} ${errors3.errors3}</p>
-				<input type="text" name="tag"/>
-			</label>
+		<h1>New Dojo</h1>
+		<form:form method="POST" action="/dojos/new" modelAttribute="dojo">
+			<form:label path="/name">Name:
+				<form:input path="name"/>
+			</form:label>
 			<input type="submit" value="Submit">
-		</form>
+		</form:form>
 	</body>
 </html>

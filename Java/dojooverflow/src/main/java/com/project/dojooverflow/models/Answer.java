@@ -70,8 +70,9 @@ public class Answer{
 
 	public Answer(){}
 	
-	public Answer(String body){
+	public Answer(String body, Question question){
 		this.body = body;
+		this.question = question;
 		this.createdAt = new Date();
 		this.updatedAt = new Date();
 	}
@@ -80,5 +81,11 @@ public class Answer{
 	}
 	public void setBody(String body) {
 		this.body = body;
+	}
+	public Question getQuestion(){
+		return question;
+	}
+	public void setQuestion(Question question){
+		this.question = question;
 	}
 }

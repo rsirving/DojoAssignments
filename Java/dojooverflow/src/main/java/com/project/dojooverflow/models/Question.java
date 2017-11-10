@@ -29,7 +29,6 @@ public class Question{
 
 	@NotNull
 	private String body;
-	
 
 	// Member variables and annotations go here.
 	
@@ -46,11 +45,14 @@ public class Question{
 
 	@OneToMany(mappedBy="question", fetch = FetchType.LAZY)
 	private List<Answer> answers;
+	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
 		name="questions_tags",
-		joinColumns = @JoinColumn(name="tag_id")
+		joinColumns = @JoinColumn(name="question_id"),
+		inverseJoinColumns = @JoinColumn(name="tag_id")
 	)
+	private List<Tag> tags;
 	
 	public long getId() {
 		return id;
@@ -75,8 +77,9 @@ public class Question{
 
 	public Question(){}
 	
-	public Question(String body){
+	public Question(String body, List<Tag> tags){
 		this.body = body;
+		this.tags = tags;
 		this.createdAt = new Date();
 		this.updatedAt = new Date();
 	}
@@ -85,5 +88,17 @@ public class Question{
 	}
 	public void setBody(String body) {
 		this.body = body;
+	}
+	public List<Answer> getAnswers(){
+		return answers;
+	}
+	public void setAnswers(List<Answer> answers){
+		this.answers = answers;
+	}
+	public List<Tag> getTags(){
+		return tags;
+	}
+	public void setTags(List<Tag> tags){
+		this.tags = tags;
 	}
 }

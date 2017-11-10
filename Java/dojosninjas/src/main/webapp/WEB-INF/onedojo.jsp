@@ -14,18 +14,6 @@
 	</head>
 
 	<body>
-		<h1>What is your question?</h1>
-		<form method="POST" action="/questions/new">
-			<label name="body">Question:
-				<p style="color: red">${errors1.errors1} ${errors4.errors4}</p>
-				<textarea name="body" id="body" rows="5" cols="30"></textarea>
-			</label>
-			<br>
-			<label name="tag">Add Tags:
-				<p style="color: red">${errors2.errors2} ${errors3.errors3}</p>
-				<input type="text" name="tag"/>
-			</label>
-			<input type="submit" value="Submit">
-		</form>
+		<div>Its your turn to work.</div>
 	</body>
 </html>

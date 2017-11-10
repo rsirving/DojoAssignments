@@ -14,22 +14,25 @@
 	</head>
 
 	<body>
-		<form:form method="POST" action="/licenses/new" modelAttribute="license">
-			<form:label path="person">
-				<form:select path="person">
+		<form:form method="POST" action="/ninjas/new" modelAttribute="ninja">
+			<form:label path="dojo">Dojo: 
+				<form:select path="dojo">
 					<form:option value="NONE" label="Select"/>
-					<c:forEach items="${persons}" var="person">
-						<form:option value="${person}" label="${person.firstName} ${person.lastName}"/>
+					<c:forEach items="${dojos}" var="dojo">
+						<form:option value="${dojo}" label="${dojo.name}"/>
 					</c:forEach>
 				</form:select>
+				<form:label path="firstName">First Name:
+					<form:input path="firstName"/>
+				</form:label>
+				<form:label path="lastName">Last Name:
+					<form:input path="lastName"/>
+				</form:label>
+				<form:label path="age">Age:
+					<form:input type="number" path="age"/>
+				</form:label>
+				<input type="submit" value="Submit">
 			</form:label>
-			<form:label path="state">State:
-				<form:input path="state"/>
-			</form:label>
-			<form:label path="expirationDate">
-				<form:input type="date" path="expirationDate"/>
-			</form:label>
-			<input type="submit" value="Submit">
-		</form:form>	
+		</form:form>
 	</body>
 </html>

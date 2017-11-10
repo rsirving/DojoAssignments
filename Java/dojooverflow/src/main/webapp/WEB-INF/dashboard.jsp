@@ -21,9 +21,11 @@
 				<th>Tags</th>
 			</thead>
 			<tbody>
-				<c:forEach items="${questions}" var="question">
-					<td><a href="/questions/${question.id}"><c:out value="${question.question}"/></a></td>
-					<td><c:out value="${question.tags}"/></td>
+				<c:forEach items="${questions}" var="question"><tr>
+					<td><a href="/questions/${question.id}"><c:out value="${question.body}"/></a></td>
+					<td><c:forEach items="${question.tags}" var="tag">
+						<p>${tag.name}</p>
+					</c:forEach></td></tr>
 				</c:forEach>
 			</tbody>
 		</table>

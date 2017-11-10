@@ -1,4 +1,4 @@
-package com.project.dojooverflow.models;
+package com.project.dojosninjas.models;
 
 import java.util.Date;
 import java.util.List;
@@ -14,7 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Transient;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Type;
@@ -22,14 +21,15 @@ import org.hibernate.validator.constraints.Email;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-public class Tag{
+public class Dojo{
 	@Id
 	@GeneratedValue
-	private long id;
+	private int id;
 
-	@NotNull
 	private String name;
 
+	@OneToMany(mappedBy="dojo", fetch=FetchType.LAZY)
+	private List<Ninja> ninjas;
 	// Member variables and annotations go here.
 	
 	@DateTimeFormat(pattern="MM:dd:yyyy HH:mm:ss")
@@ -42,19 +42,11 @@ public class Tag{
 	public void onCreate(){this.createdAt = new Date();}
 	@PreUpdate
 	public void onUpdate(){this.updatedAt = new Date();}
-
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(
-		name="questions_tags",
-		joinColumns = @JoinColumn(name="tag_id"),
-		inverseJoinColumns = @JoinColumn(name="question_id")
-	)
-	private List<Question> questions;
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public Date getCreatedAt() {
@@ -72,9 +64,9 @@ public class Tag{
 	
 	// Setters and Getters go here
 
-	public Tag(){}
+	public Dojo(){}
 	
-	public Tag(String name){
+	public Dojo(String name){
 		this.name = name;
 		this.createdAt = new Date();
 		this.updatedAt = new Date();
@@ -84,11 +76,5 @@ public class Tag{
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public List<Question> getQuestions(){
-		return questions;
-	}
-	public void setQuestions(List<Question> questions){
-		this.questions = questions;
 	}
 }
