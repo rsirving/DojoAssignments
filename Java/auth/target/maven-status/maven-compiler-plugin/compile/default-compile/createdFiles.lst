@@ -1,0 +1,10 @@
+com\project\auth\repositories\UserRepo.class
+com\project\auth\config\WebSecurityConfig.class
+com\project\auth\repositories\RoleRepo.class
+com\project\auth\models\Role.class
+com\project\auth\services\UserService.class
+com\project\auth\authApplication.class
+com\project\auth\models\User.class
+com\project\auth\validators\UserValidator.class
+com\project\auth\controllers\Users.class
+com\project\auth\services\UserDetailsServiceImplementation.class
