@@ -30,7 +30,6 @@ public class User {
     private Long id;
 
     @Size(min=3)
-    @Email
     private String username;
 
     @Size(min=10)
