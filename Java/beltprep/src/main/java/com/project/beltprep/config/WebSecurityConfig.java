@@ -1,26 +1,25 @@
-package com.project.auth.config;
+package com.project.beltprep.config;
+import com.project.beltprep.repositories.*;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 
-@Configuration
-@EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    private UserDetailsService userDetailsService;
-    
-    public WebSecurityConfig(UserDetailsService userDetailsService) {
-    	this.userDetailsService = userDetailsService;
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+    private UserRepo userRepo;
+
+    public WebSecurityConfig(UserRepo userRepo){
+        this.userRepo = userRepo;
     }
 
-    @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+    @Bean 
+    public BCryptPasswordEncoder bCryptPasswordEncoder(UserRepo userRepo){
+        this.userRepo = userRepo;
         return new BCryptPasswordEncoder();
     }
 
@@ -28,11 +27,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.
             authorizeRequests()
-                .antMatchers("/css/**", "/js/**", "/registration").permitAll()
+                .antMatchers("/static/**", "/registration").permitAll()
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")
                 .anyRequest().authenticated()
                 .and()
-            .formLogin()
+            .formLogin()   
                 .loginPage("/login")
                 .permitAll()
                 .and()
@@ -42,6 +41,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+        auth.userDetailsService(userRepo).passwordEncoder(bCryptPasswordEncoder(userRepo));
     }
 }

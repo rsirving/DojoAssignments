@@ -1,0 +1,17 @@
+package com.project.beltprep.repositories;
+import com.project.beltprep.models.*;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository 												
+public interface RingRepo extends CrudRepository<Ring,Long>{
+	// Query methods go here.
+	
+	// Example:
+	// public YourModelHere findByName(String name);
+	List<Ring> findAll();
+}

@@ -50,6 +50,13 @@ public class Main {
         return "redirect:/login";
     }
     
+    @RequestMapping("/admin")
+    public String adminPage(Principal principal, Model model) {
+        String username = principal.getName();
+        model.addAttribute("currentUser", userService.findByUsername(username));
+        return "adminpage";
+    }
+
     @RequestMapping(value = {"/", "/dashboard"})
     public String home(Principal principal, Model model) {
         if (principal.getName() == null){
