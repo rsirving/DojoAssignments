@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script src="node_modules/react/umd/react.development.js"></script>
+        <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+        <div id='app'></div>
+        <div id='app2'></div>
+        <div id='app3'></div>
+    
+        <script>
+            var element = React.createElement('h1', null, 'Hello Dojo!');
+            var element2 = React.createElement('h2', null, 'Things I need to do:');
+            var tasks = ["Learn React", "Climb Mt. Everest", "Run a marathon", "Feed the dogs"];
+            var tasksList = "";
+            for (var i = 0; i < tasks.length; i++){
+                tasksList += React.createElement('li', null, tasks[i]);
+            }
+            var tasksElement = React.createElement('ul', null, tasksList);
+            console.log(tasksElement);
+            
+            ReactDOM.render(element, document.getElementById('app'));
+            ReactDOM.render(element2, document.getElementById('app2'));
+            console.log("Hello");
+            ReactDOM.render(tasksElement, document.getElementById('app3'));
+        </script>
+    </body>
+</html>
