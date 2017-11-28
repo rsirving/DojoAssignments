@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script src="node_modules/react/umd/react.development.js"></script>
+        <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+        <script src="node_modules/react-interval/build/react-interval.min.js"></script>        
+        <div id='app'></div>
+
+        <script>
+            setInterval(function(){
+                var date = new Date().toLocaleTimeString();
+                console.log(date);
+                var element = React.createElement('p', null, date)
+                ReactDOM.render(element, document.getElementById('app'));
+            }, 1000);
+        </script>
+    </body>
+</html>

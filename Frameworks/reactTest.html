@@ -1,0 +1,16 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script src="node_modules/react/umd/react.development.js"></script>
+        <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+        <div id="app"><p>hello</p></div>
+        <script>
+            const myButton = React.createElement('button', null, 'Click Me!');
+            console.log(JSON.stringify(myButton));
+            console.log(React);
+            console.log(ReactDOM);
+            ReactDOM.render(myButton, document.querySelector('#app'));
+        </script>
+    </body>
+</html>
