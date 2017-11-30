@@ -10,20 +10,15 @@
         class Deck{
             constructor(){
                 this.cards = [];
-                for (var i = 1; i <= 52; i++){
-                    if (i <= 13){
-                        this.cards.push("U+1F0A"+(i).toString(16).toUpperCase());
+                let suits = ['A', 'B', 'C', 'D'];
+                for (var i = 0; i < 4; i++){
+                    for (var x = 1; x < 15; x++){
+                        if (x == 12) {
+                            continue;
+                        } else {
+                            this.cards.push("U+1F0" + suits[i] + (x).toString(16).toUpperCase());
+                        }
                     }
-                    else if ((i > 13) & (i <= 26)){
-                        this.cards.push("U+1F0B"+(i%13).toString(16).toUpperCase());
-                    }
-                    else if ((i > 26) & (i <= 39)){
-                        this.cards.push("U+1F0C"+(i%13).toString(16).toUpperCase());
-                    }
-                    else {
-                        this.cards.push("U+1F0D"+(i%13).toString(16).toUpperCase());
-                    }
-                    console.log(this.cards)
                 }
             }
             shuffle(){
@@ -36,17 +31,41 @@
                 }
             }
             deal(){
-                var card = this.cards[Math.floor(Math.random()*53)]
-                console.log(this.cards[Math.floor(Math.random()*53)])
+                return this.cards.pop();
+            }
+            returnCard(card){
+                this.cards.push(card);
             }
             reset(){
-                pass;
+                this.constructor();
             }
-
         }
-        let deck1 = new Deck();
-        let number = 9%16;
-        console.log("U+1F0C"+ number.toString(16).toUpperCase())
+        class Player {
+            constructor(name) {
+                this.name = name;
+                this.deck = new Deck();
+                this.deck.shuffle();
+                this.hand = [];
+                for (var i = 0; i < 5; i++){
+                    this.hand.push(this.deck.deal())
+                }
+            }
+            show() {
+                console.log(this.hand);
+            }
+            draw() {
+                this.hand.push(this.deck.deal());
+            }
+            discard() {
+                this.deck.returnCard(this.hand.shift());
+            }
+        }
+        let player1 = new Player("Rob");
+        player1.show();
+        player1.draw();
+        player1.show();
+        player1.discard();
+        player1.show();
     </script>
 </body>
 </html>

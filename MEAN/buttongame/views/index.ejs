@@ -3,12 +3,29 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
         <script type="text/javascript">
-            $(document).ready(function() {
+            $(document).ready(function(){
                 var socket = io.connect();
-                var count = 0;
+                $('#increment').click(function(){
+                    console.log("Adding 1.");
+                    socket.emit("incCount");
+                    return false;
+                })
+                $('#reset').click(function(){
+                    console.log("Resetting count.");
+                    socket.emit("incReset");
+                })
+                socket.on("incResponse", function(data){
+                    var count = data.count;
+                    document.getElementById("count").innerHTML = "<h1>The button has been pushed " + count + " times.";
+                })
+                document.getElementById("count").innerHTML = "<h1>The button has been pushed " + count + " times.";
             })
         </script>
     </head>
     <body>
+        <div id="count"></div>
+        <p>Push the button to update the count!</p>
+        <button id="increment">Push the Okay Button</button>
+        <button id="reset">Reset the count</button>
     </body>
 </html>
