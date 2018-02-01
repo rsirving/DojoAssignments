@@ -79,39 +79,21 @@ public class Guild{
 		this.createdAt = new Date();
 		this.updatedAt = new Date();
 	}
-	/**
-	 * @return the name
-	 */
 	public String getName() {
 		return name;
 	}
-	/**
-	 * @param name the name to set
-	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-	/**
-	 * @return the size
-	 */
 	public int getSize() {
 		return size;
 	}
-	/**
-	 * @param size the size to set
-	 */
 	public void setSize(int size) {
 		this.size = size;
 	}
-	/**
-	 * @return the members
-	 */
 	public List<User> getMembers() {
 		return members;
 	}
-	/**
-	 * @param members the members to set
-	 */
 	public void setMembers(List<User> members) {
 		this.members = members;
 	}

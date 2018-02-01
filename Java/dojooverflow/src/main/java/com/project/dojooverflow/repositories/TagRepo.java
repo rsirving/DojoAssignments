@@ -14,4 +14,5 @@ public interface TagRepo extends CrudRepository<Tag,Long>{
 	// Example:
 	// public YourModelHere findByName(String name);
 	List<Tag> findByNameContaining(String search);
+	Tag findById(Long id);
 }

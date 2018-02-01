@@ -70,8 +70,6 @@ public class QuestionTag{
 	}
 	
 	// Setters and Getters go here
-
-	public QuestionTag(){}
 	
 	public QuestionTag(){
 

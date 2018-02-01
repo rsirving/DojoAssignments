@@ -10,22 +10,31 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Index</title>
-		<!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto|Poiret+One" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
 	</head>
 
 	<body>
-		<h1>What is your question?</h1>
-		<form method="POST" action="/questions/new">
-			<label name="body">Question:
-				<p style="color: red">${errors1.errors1} ${errors4.errors4}</p>
+		<div class="wrapper">
+			<h1>OverFlow</h1>
+			<h2>What is your question?</h2>
+			<form method="POST" action="/questions/new/submit">
+				<p class="error">${errors0}</p>
+				<label name="body">Question:</label>
+				<br>
+				<p class="error">${errors1}</p>
 				<textarea name="body" id="body" rows="5" cols="30"></textarea>
-			</label>
-			<br>
-			<label name="tag">Add Tags:
-				<p style="color: red">${errors2.errors2} ${errors3.errors3}</p>
-				<input type="text" name="tag"/>
-			</label>
-			<input type="submit" value="Submit">
-		</form>
+				<br>
+				<label name="tag">Add Tags:</label>
+				<br>
+				<p class="error">${errors2}</p>
+				<p class="error">${errors3}</p>
+				<input type="text" name="tag"/><br><br>
+				<input type="submit" value="Submit">
+			</form>
+			<form action="/" method="GET">
+				<input type="submit" value="Return">
+			</form>
+		</div>
 	</body>
 </html>

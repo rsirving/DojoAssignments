@@ -51,22 +51,30 @@ public class HomeController{
 		if (activity.equals("farm")){
 			newGold = r.nextInt(10+1)+10;
 			oldGold += newGold;
-			res = "You entered a farm and earned " +newGold+" gold.";
+			res = "You spent some time at a farm and earned " +newGold+" gold.";
 		}
 		if (activity.equals("cave")){
 			newGold = r.nextInt(5+1)+5;
 			oldGold += newGold;
-			res = "You entered a cave and earned " +newGold+" gold.";
+			res = "You explored an old cave and discovered " +newGold+" gold.";
 		}
 		if (activity.equals("house")){
 			newGold = r.nextInt(3+1)+2;
 			oldGold += newGold;
-			res = "You entered a house and earned " +newGold+" gold.";
+			res = "You broke into a house and stole " +newGold+" gold.";
 		}
 		if (activity.equals("casino")){
 			newGold = -50 + r.nextInt(101);
 			oldGold += newGold;
-			res = "You entered a casino and earned " +newGold+" gold.";
+			if (newGold < 0) {
+				res = "You went to the casino and lost " + newGold + " gold.";
+			}
+			else if (newGold == 0){
+				res = "You went to the casino and broke even.";
+			}
+			else {
+				res = "You went to the casino and won " + newGold + " gold. Lucky you.";
+			}
 		}
 		session.setAttribute("gold", oldGold);
 		ArrayList<String> acts = (ArrayList<String>) session.getAttribute("activities");

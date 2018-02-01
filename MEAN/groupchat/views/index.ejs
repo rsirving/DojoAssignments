@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chat Room</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var socket = io.connect();
+                document.getElementById("main").innerHTML = "<form id='form'>Your name is: <input type='text' id='name'/><button id='login'>Log In</button></form>";
+                $('#login').click(function(){
+                    console.log($('#name').val());
+                    if ($('#name').val() != ""){
+                        socket.emit("get_new_user", {'name': $('#name').val()});
+                        return false;
+                    }
+                })
+                socket.on("new_user", function(data){
+                    
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div id="main">
+
+        </div>
+    </body>
+</html>

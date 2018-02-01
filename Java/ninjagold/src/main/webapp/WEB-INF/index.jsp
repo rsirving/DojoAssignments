@@ -52,7 +52,7 @@
 		</div>
 		<div>
 			<h2>Activities</h2>
-			<c:forEach items="$(activities)" var="activity">
+			<c:forEach items="${activities}" var="activity">
 				<p>${activity}</p>
 			</c:forEach>
 

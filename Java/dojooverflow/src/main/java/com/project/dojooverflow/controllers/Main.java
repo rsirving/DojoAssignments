@@ -47,24 +47,28 @@ public class Main{
 		return "newquestion";
 	}
 
-	@PostMapping("/questions/new")
+	@PostMapping("/questions/new/submit")
 	public String createQuestion(Model model, @RequestParam(value="tag") String tag, @RequestParam(value="body") String body, RedirectAttributes err){
-		if (tag.isEmpty() && body.isEmpty()){
-			err.addFlashAttribute("errors4", "All inputs must be filled.");
-			model.addAttribute("errors4", err.getFlashAttributes());
-			return "newquestion";
+		if (body.isEmpty() && tag.isEmpty()){
+			err.addFlashAttribute("errors0", "Question and tags are required.");
+			model.addAttribute("errors0", err.getFlashAttributes());
+			return "redirect:/questions/new";
 		}
-		if (tag.isEmpty()){
-			err.addFlashAttribute("errors2", "Tag input must be full");
-            model.addAttribute("errors2", err.getFlashAttributes());
-            return "newquestion";
-		} else if(body.isEmpty()) {
-            err.addFlashAttribute("errors1", "Question input must be full");
-            model.addAttribute("errors1", err.getFlashAttributes());
-            return "newquestion";
-        } else {
+		if (body.isEmpty()){
+			err.addFlashAttribute("errors1", "Question is required.");
+			model.addAttribute("errors1", err.getFlashAttributes());
+			return "redirect:/questions/new";
+		} else if (tag.isEmpty()){
+			err.addFlashAttribute("errors2", "At least one tag is required.");
+			model.addAttribute("errors2", err.getFlashAttributes());
+			return "redirect:/questions/new";
+		} else {
 			List<Tag> currentTags = new ArrayList<Tag>();
-			List<String> allTags = Arrays.asList(tag.split(", "));
+			tag = tag.replaceAll(",+", " ");
+			tag = tag.replaceAll(".+", " ");
+			tag = tag.replaceAll(" +", " ");
+			List<String> allTags = Arrays.asList(tag.split("(, |. |,|.| )"));
+			allTags.removeAll(Arrays.asList(new String[]{"", " ", null}));
 			if (allTags.size() < 4){
 				for (int i = 0; i < allTags.size(); i++){
 					List<Tag> current = tagRepo.findByNameContaining(allTags.get(i));
@@ -82,7 +86,7 @@ public class Main{
 			} else {
 				err.addFlashAttribute("errors3", "No more than three tags");
 				model.addAttribute("errors3", err.getFlashAttributes());
-				return "newQuestion";
+				return "redirect:/questions/new";
 			}
 		}
 	}
@@ -94,8 +98,14 @@ public class Main{
 		return "showquestion";
 	}
 	@PostMapping("/answer/new/{id}")
-	public String newAnswer(Model model, @PathVariable("id") Long id, @RequestParam("body") String body){
+	public String newAnswer(Model model, @PathVariable("id") Long id, @RequestParam("body") String body,
+			RedirectAttributes err){
 		Question question = questionRepo.findById(id);
+		if (body.isEmpty()){
+			err.addFlashAttribute("answerError", "Answer text is required.");
+			model.addAttribute("answerError", err.getFlashAttributes());
+			return "redirect:/questions/{id}";
+		}
 		Answer newAnswer = new Answer(body, question);
 		answerRepo.save(newAnswer);
 		return "redirect:/questions/{id}";

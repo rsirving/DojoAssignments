@@ -9,26 +9,36 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Index</title>
-		<!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
+		<title>Overflow</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto|Poiret+One" rel="stylesheet">
+		<link href="/css/style.css" rel="stylesheet">
 	</head>
 
 	<body>
-		<h1>Questions Dashboard</h1>
-		<table>
-			<thead>
-				<th>Question</th>
-				<th>Tags</th>
-			</thead>
-			<tbody>
-				<c:forEach items="${questions}" var="question"><tr>
-					<td><a href="/questions/${question.id}"><c:out value="${question.body}"/></a></td>
-					<td><c:forEach items="${question.tags}" var="tag">
-						<p>${tag.name}</p>
-					</c:forEach></td></tr>
-				</c:forEach>
-			</tbody>
-		</table>
-		<a href="/questions/new">New Question</a>
+		<div class="wrapper">
+			<h1>OverFlow</h1>
+			<h2>Dashboard</h2>
+			<table>
+				<thead>
+					<th>Question</th>
+					<th>Tags</th>
+				</thead>
+				<tbody>
+					<c:forEach items="${questions}" var="question"><tr>
+						<td><a href="/questions/${question.id}"><c:out value="${question.body}"/></a></td>
+						<td><c:forEach items="${question.tags}" var="tag">
+							<button disabled>${tag.name}</button>
+						</c:forEach></td></tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			<br>
+			<form method="GET" action="/questions/new">
+				<input type="submit" value="New Question">
+			</form>
+			<form class="quicknav" action="/" method="GET">
+				<input type="submit" value="Return">
+			</form>
+		</div>
 	</body>
 </html>

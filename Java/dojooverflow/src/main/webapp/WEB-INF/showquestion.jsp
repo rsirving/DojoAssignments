@@ -10,25 +10,42 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Index</title>
-		<!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto|Poiret+One" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
 	</head>
 
 	<body>
-		<h2><c:out value="${question.body}"/></h2>
-		<h3>Tags:</h3>
-		<c:forEach items="${question.tags}" var="tag">
-			<p>${tag.name}</p>
-		</c:forEach>
-
-		<form method="post" action="/answer/new/${question.id}">
-			<label name="body">Add Answer:
-				<textarea name="body" id="body" cols="30" rows="5"></textarea>
-			</label><br>
-			<input type="submit" value="Submit">
-		</form>
-		<h3>Answers:</h3>
-		<c:forEach items="${answers}" var="answer">
-			<p>${answer.body}</p>
-		</c:forEach>
+		<div class="wrapper">
+			<h1>OverFlow</h1>
+			<div id="questionInfo">
+				<h2><c:out value="${question.body}"/></h2>
+				<h3>Tags:</h3>
+				<c:forEach items="${question.tags}" var="tag">
+					<button class="tag" disabled>${tag.name}</button>
+				</c:forEach>
+			</div>
+			<br>
+			<div id="answerSection">
+				<form method="post" action="/answer/new/${question.id}">
+					<label name="body">Add Answer:</label><br>
+					<p class="error">${answerError}</p>
+					<textarea name="body" id="body" cols="30" rows="5"></textarea>
+					<br>
+					<input type="submit" value="Submit">
+				</form>
+				<h3>Answers:</h3>
+				<table>
+					<c:forEach items="${answers}" var="answer"><tr>
+						<td>${answer.body}</td>
+					</tr>
+					</c:forEach>
+				</table>
+			</div>
+			<div class="quicknav">
+				<form action="/" method="GET">
+					<input type="submit" value="Return">
+				</form>
+			</div>
+		</div>
 	</body>
 </html>
